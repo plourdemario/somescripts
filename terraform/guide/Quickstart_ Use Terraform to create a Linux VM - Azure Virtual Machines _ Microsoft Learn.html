@@ -1,0 +1,2773 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli -->
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus theme-light" lang="en-us" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="true" data-target="docs" x-ms-format-detection="none"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Quickstart: Use Terraform to create a Linux VM - Azure Virtual Machines">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform">
+			<meta property="og:description" content="In this quickstart, you learn how to use Terraform to create a Linux virtual machine">
+
+	<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png">
+
+	<meta property="og:image:alt" content="Microsoft Learn">
+
+	<meta name="twitter:card" content="summary_large_image">
+
+	<meta name="twitter:site" content="@MicrosoftLearn">
+
+	<meta name="color-scheme" content="light dark">
+
+
+	<meta name="author" content="TomArcherMsft">
+<meta name="breadcrumb_path" content="/azure/bread/toc.json">
+<meta name="content_well_notification" content="AI-contribution">
+<meta name="depot_name" content="Azure.azure-documents">
+<meta name="description" content="In this quickstart, you learn how to use Terraform to create a Linux virtual machine">
+<meta name="document_id" content="0be5efec-a7e5-9346-b859-4791da050820">
+<meta name="document_version_independent_id" content="7d046801-a77f-602c-3daf-c32ee37454fd">
+<meta name="feedback_system" content="GitHub">
+<meta name="git_commit_id" content="be075b9bdeb2f59af63a116a576f617cb036418b">
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/be075b9bdeb2f59af63a116a576f617cb036418b/articles/virtual-machines/linux/quick-create-terraform.md">
+<meta name="learn_banner_products" content="azure-virtual-machines">
+<meta name="locale" content="en-us">
+<meta name="manager" content="mamccrea">
+<meta name="ms.author" content="tarcher">
+<meta name="ms.collection" content="linux">
+<meta name="ms.custom" content="devx-track-terraform">
+<meta name="ms.date" content="07/24/2023">
+<meta name="ms.service" content="virtual-machines">
+<meta name="ms.suite" content="office">
+<meta name="ms.topic" content="quickstart">
+<meta name="ms.workload" content="infrastructure">
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-machines/linux/quick-create-terraform.md">
+<meta name="page_type" content="conceptual">
+<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}">
+<meta name="recommendation_types" content="Training">
+<meta name="recommendation_types" content="Certification">
+<meta name="recommendations" content="true">
+<meta name="schema" content="Conceptual">
+<meta name="site_name" content="Docs">
+<meta name="toc_rel" content="../toc.json">
+<meta name="uhfHeaderId" content="azure">
+<meta name="updated_at" content="2023-07-24 03:01 PM">
+<meta name="word_count" content="1352">
+
+
+	<meta name="recommendation_types" content="Training">
+	<meta name="recommendation_types" content="Certification">
+	
+
+	<meta name="persistent_id" content="e2a3a174-23e1-0a60-c419-04ec985f4f79">
+	
+
+
+	<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d" data-source="generated">
+
+	<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/2ed91286-6cf7-4b83-810d-75d0ee3b09dd" data-source="generated">
+
+	<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39" data-source="generated">
+
+	
+
+
+	<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d" data-source="generated">
+
+	<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/6735bd7e-4f7b-457d-b58c-29e6f0198677" data-source="generated">
+
+	<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849" data-source="generated">
+
+	
+
+	<meta name="scope" content="Azure, Virtual Machines">
+	<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-machines/linux/quick-create-terraform.md">
+<link href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform" rel="canonical">
+	<title>Quickstart: Use Terraform to create a Linux VM - Azure Virtual Machines | Microsoft Learn</title>
+
+		<link rel="stylesheet" href="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/a771ae71.site-ltr.css">
+
+	
+
+	<script id="msdocs-script">
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: 'azure',
+			context: {
+			},
+			hasBinaryRating: true,
+			hasGithubIssues: true,
+			feedbackHelpLinkType:'',
+			feedbackHelpLinkUrl:'',
+			standardFeedback: false,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			contentWellNotification: 'AI-contribution',
+			feedbackSystem: 'GitHub',
+			feedbackGitHubRepo: 'MicrosoftDocs/azure-docs',
+			feedbackProductUrl: 'https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c',
+			extendBreadcrumb: false,
+			isEditDisplayable: true,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasPrintButton: true,
+			hasBookmark: true,
+			hasShare: true,
+			isPermissioned: false,
+			isPrivateUnauthorized: false,
+			hasRecommendations: true,
+			contributors: [
+						{ name: "TomArcherMsft", url: "https://github.com/TomArcherMsft" }
+],
+		},
+		functions:{}
+	};
+	</script>
+	<script src="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/wcp-consent.js.download"></script>
+	<script src="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/ms.jsll-3.min.js.download"></script>
+
+	<script src="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/67a45209.deprecation.js.download"></script>
+		<link rel="preconnect" href="https://mscom.demdex.net/" crossorigin="">
+		<link rel="dns-prefetch" href="https://target.microsoft.com/">
+		<link rel="dns-prefetch" href="https://microsoftmscompoc.tt.omtrdc.net/">
+		<link rel="preload" as="script" href="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/at.js.download" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous" id="adobe-target-script" type="application/javascript">
+		<script src="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/9d61c4d3.index-docs.js.download"></script><style></style>
+<style id="ms-consent-banner-main-styles">.w8hcgFksdo30C8w-bygqu{color:#000}.ydkKdaztSS0AeHWIeIHsQ a{color:#0067B8}.erL690_8JwUW-R4bJRcfl{background-color:#EBEBEB;border:none;color:#000}.erL690_8JwUW-R4bJRcfl:enabled:hover{color:#000;background-color:#DBDBDB;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:none}.erL690_8JwUW-R4bJRcfl:enabled:focus{background-color:#DBDBDB;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:2px solid #000}.erL690_8JwUW-R4bJRcfl:disabled{opacity:1;color:rgba(0,0,0,0.2);background-color:rgba(0,0,0,0.2);border:none}._1zNQOqxpBFSokeCLGi_hGr{border:none;background-color:#0067B8;color:#fff}._1zNQOqxpBFSokeCLGi_hGr:enabled:hover{color:#fff;background-color:#0067B8;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:none}._1zNQOqxpBFSokeCLGi_hGr:enabled:focus{background-color:#0067B8;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:2px solid #000}._1zNQOqxpBFSokeCLGi_hGr:disabled{opacity:1;color:rgba(0,0,0,0.2);background-color:rgba(0,120,215,0.2);border:none}._23tra1HsiiP6cT-Cka-ycB{position:relative;display:flex;z-index:9999;width:100%;background-color:#F2F2F2;justify-content:space-between;text-align:left}div[dir="rtl"]._23tra1HsiiP6cT-Cka-ycB{text-align:right}._1Upc2NjY8AlDn177YoVj0y{margin:0;padding-left:5%;padding-top:8px;padding-bottom:8px}div[dir="rtl"] ._1Upc2NjY8AlDn177YoVj0y{margin:0;padding:8px 5% 8px 0;float:none}._23tra1HsiiP6cT-Cka-ycB svg{fill:none;max-width:none;max-height:none}._1V_hlU-7jdtPiooHMu89BB{display:table-cell;padding:12px;width:24px;height:24px;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:24px;line-height:0}.f6QKJD7fhSbnJLarTL-W-{display:table-cell;vertical-align:middle;padding:0;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:13px;line-height:16px}.f6QKJD7fhSbnJLarTL-W- a{text-decoration:underline}._2j0fmugLb1FgYz6KPuB91w{display:inline-block;margin-left:5%;margin-right:5%;min-width:40%;min-width:calc((150px + 3 * 4px) * 2 + 150px);min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;align-self:center;position:relative}._1XuCi2WhiqeWRUVp3pnFG3{margin:4px;padding:5px;min-width:150px;min-height:36px;vertical-align:top;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-align:center}._1XuCi2WhiqeWRUVp3pnFG3:focus{box-sizing:border-box}._1XuCi2WhiqeWRUVp3pnFG3:disabled{cursor:not-allowed}._2bvsb3ubApyZ0UGoQA9O9T{display:block;position:fixed;z-index:10000;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255,0.6);overflow:auto;text-align:left}div[dir="rtl"]._2bvsb3ubApyZ0UGoQA9O9T{text-align:right}div[dir="rtl"] ._2bvsb3ubApyZ0UGoQA9O9T{left:auto;right:0}.AFsJE948muYyzCMktdzuk{position:relative;top:8%;margin-bottom:40px;margin-left:auto;margin-right:auto;box-sizing:border-box;width:640px;background-color:#fff;border:1px solid #0067B8}._3kWyBRbW_dgnMiEyx06Fu4{float:right;z-index:1;margin:2px;padding:12px;border:none;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:13px;line-height:13px;display:flex;align-items:center;text-align:center;color:#666;background-color:#fff}div[dir="rtl"] ._3kWyBRbW_dgnMiEyx06Fu4{margin:2px;padding:12px;float:left}.uCYvKvHXrhjNgflv1VqdD{position:static;margin-top:36px;margin-left:36px;margin-right:36px}._17pX1m9O_W--iZbDt3Ta5r{margin-top:0;margin-bottom:12px;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:600;font-size:20px;line-height:24px;text-transform:none}._1kBkHQ1V1wu3kl-YcLgUr6{height:446px;overflow:auto}._20_nXDf6uFs9Q6wxRXG-I-{margin-top:0;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px}._20_nXDf6uFs9Q6wxRXG-I- a{text-decoration:underline}dl._2a0NH_GDQEQe5Ynfo7suVH{margin-top:36px;margin-bottom:0;padding:0;list-style:none;text-transform:none}dt._3j_LCPv7fyXv3A8FIXVwZ4{margin-top:20px;float:none;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:600;font-size:18px;line-height:24px;list-style:none}.k-vxTGFbdq1aOZB2HHpjh{margin:0;padding:0;border:none}._2Bucyy75c_ogoU1g-liB5R{margin:0;padding:0;border-bottom:none;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:600;font-size:18px;line-height:24px;text-transform:none}._63gwfzV8dclrsl2cfd90r{display:inline-block;margin-top:0;margin-bottom:13px;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px}._1l8wM_4mRYGz3Iu7l3BZR7{display:block}._2UE03QS02aZGkslegN_F-i{display:inline-block;position:relative;left:5px;margin-bottom:13px;margin-right:34px;padding:3px}div[dir="rtl"] ._2UE03QS02aZGkslegN_F-i{margin:0 0 13px 34px;padding:3px;float:none}div[dir="rtl"] ._2UE03QS02aZGkslegN_F-i{left:auto;right:5px}._23tra1HsiiP6cT-Cka-ycB *::before,._2bvsb3ubApyZ0UGoQA9O9T *::before,._23tra1HsiiP6cT-Cka-ycB *::after,._2bvsb3ubApyZ0UGoQA9O9T *::after{box-sizing:inherit}._1HSFn0HzGo6w4ADApV8-c4{outline:2px solid rgba(0,0,0,0.8)}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2{display:inline-block;position:relative;margin-top:0;margin-left:0;margin-right:0;height:0;width:0;border-radius:0;cursor:pointer;outline:none;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2+label::before{display:block;position:absolute;top:5px;left:3px;height:19px;width:19px;content:"";border-radius:50%;border:1px solid #000;background-color:#fff}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2+label::before{left:auto;right:3px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:hover::before{border:1px solid #0067B8}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:hover::after{display:block;position:absolute;top:10px;left:8px;height:9px;width:9px;content:"";border-radius:50%;background-color:rgba(0,0,0,0.8)}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:hover::after{left:auto;right:8px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:focus::before{border:1px solid #0067B8}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:focus::after{display:block;position:absolute;top:10px;left:8px;height:9px;width:9px;content:"";border-radius:50%;background-color:#000}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:focus::after{left:auto;right:8px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:checked+label::after{display:block;position:absolute;top:10px;left:8px;height:9px;width:9px;content:"";border-radius:50%;background-color:#000}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:checked+label::after{left:auto;right:8px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:disabled+label{cursor:not-allowed}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:disabled+label::before{border:1px solid rgba(0,0,0,0.2);background-color:rgba(0,0,0,0.2)}._3RJzeL3l9Rl_lAQEm6VwdX{display:block;position:static;float:right;margin-top:0;margin-bottom:0;margin-left:19px;margin-right:0;padding-top:0;padding-bottom:0;padding-left:8px;padding-right:0;width:80%;width:calc(100% - 19px);font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-transform:none;cursor:pointer;box-sizing:border-box}div[dir="rtl"] ._3RJzeL3l9Rl_lAQEm6VwdX{margin:0 19px 0 0;padding:0 8px 0 0;float:left}.nohp3sIG12ZBhzcMnPala{margin-top:20px;margin-bottom:48px}._2uhaEsmeotZ3P-M0AXo2kF{padding:0;width:278px;height:36px;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-align:center}._2uhaEsmeotZ3P-M0AXo2kF:focus{box-sizing:border-box}._2uhaEsmeotZ3P-M0AXo2kF:disabled{cursor:not-allowed}._3tOu1FJ59c_xz_PmI1lKV5{float:right;padding:0;width:278px;height:36px;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-align:center}._3tOu1FJ59c_xz_PmI1lKV5:focus{box-sizing:border-box}._3tOu1FJ59c_xz_PmI1lKV5:disabled{cursor:not-allowed}div[dir="rtl"] ._3tOu1FJ59c_xz_PmI1lKV5{margin:0;padding:0;float:left}@media only screen and (max-width: 768px){._2j0fmugLb1FgYz6KPuB91w,._1Upc2NjY8AlDn177YoVj0y{padding-top:8px;padding-bottom:12px;padding-left:3.75%;padding-right:3.75%;margin:0;width:92.5%}._23tra1HsiiP6cT-Cka-ycB{display:block}._1XuCi2WhiqeWRUVp3pnFG3{margin-bottom:8px;margin-left:0;margin-right:0;width:100%}._2bvsb3ubApyZ0UGoQA9O9T{overflow:hidden}.AFsJE948muYyzCMktdzuk{top:1.8%;width:93.33%;height:96.4%;overflow:hidden}.uCYvKvHXrhjNgflv1VqdD{margin-top:24px;margin-left:24px;margin-right:24px;height:100%}._1kBkHQ1V1wu3kl-YcLgUr6{height:62%;height:calc(100% - 188px);min-height:50%}._2uhaEsmeotZ3P-M0AXo2kF{width:100%}._3tOu1FJ59c_xz_PmI1lKV5{margin-bottom:12px;margin-left:0;width:100%}div[dir="rtl"] ._3tOu1FJ59c_xz_PmI1lKV5{margin:0 0 12px 0;padding:0;float:none}}@media only screen and (max-width: 768px) and (orientation: landscape), only screen and (max-height: 260px), only screen and (max-width: 340px){.AFsJE948muYyzCMktdzuk{overflow:auto}}@media only screen and (max-height: 260px), only screen and (max-width: 340px){._1XuCi2WhiqeWRUVp3pnFG3{min-width:0}._3kWyBRbW_dgnMiEyx06Fu4{padding:3%}.uCYvKvHXrhjNgflv1VqdD{margin-top:3%;margin-left:3%;margin-right:3%}._17pX1m9O_W--iZbDt3Ta5r{margin-bottom:3%}._1kBkHQ1V1wu3kl-YcLgUr6{height:calc(79% - 64px)}.nohp3sIG12ZBhzcMnPala{margin-top:5%;margin-bottom:10%}._3tOu1FJ59c_xz_PmI1lKV5{margin-bottom:3%}div[dir="rtl"] ._3tOu1FJ59c_xz_PmI1lKV5{margin:0 0 3% 0;padding:0;float:none}}
+</style><style type="text/css" id="ms-consent-banner-theme-styles">._23tra1HsiiP6cT-Cka-ycB {
+            background-color: #F2F2F2 !important;
+        }.w8hcgFksdo30C8w-bygqu {
+            color: #000000 !important;
+        }.ydkKdaztSS0AeHWIeIHsQ a {
+            color: #0067B8 !important;
+        }._2bvsb3ubApyZ0UGoQA9O9T {
+            background-color: rgba(255, 255, 255, 0.6) !important;
+        }.AFsJE948muYyzCMktdzuk {
+            background-color: #FFFFFF !important;
+            border: 1px solid #0067B8 !important;
+        }._3kWyBRbW_dgnMiEyx06Fu4 {
+            color: #666666 !important;
+            background-color: #FFFFFF !important;
+        }._1zNQOqxpBFSokeCLGi_hGr {
+            border: none !important;
+            background-color: #0067B8 !important;
+            color: #FFFFFF !important;
+        }._1zNQOqxpBFSokeCLGi_hGr:enabled:hover {
+            color: #FFFFFF !important;
+            background-color: #0067B8 !important;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+            border: none !important;
+        }._1zNQOqxpBFSokeCLGi_hGr:enabled:focus {
+            background-color: #0067B8 !important;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+            border: 2px solid #000000 !important;
+        }._1zNQOqxpBFSokeCLGi_hGr:disabled {
+            opacity: 1 !important;
+            color: rgba(0, 0, 0, 0.2) !important;
+            background-color: rgba(0, 120, 215, 0.2) !important;
+            border: none !important;
+        }.erL690_8JwUW-R4bJRcfl {
+            border: none !important;
+            background-color: #EBEBEB !important;
+            color: #000000 !important;
+        }.erL690_8JwUW-R4bJRcfl:enabled:hover {
+            color: #000000 !important;
+            background-color: #DBDBDB !important;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+            border: none !important;
+        }.erL690_8JwUW-R4bJRcfl:enabled:focus {
+            background-color: #DBDBDB !important;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25) !important;
+            border: 2px solid #000000 !important;
+        }.erL690_8JwUW-R4bJRcfl:disabled {
+            opacity: 1 !important;
+            color: rgba(0, 0, 0, 0.2) !important;
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            border: none !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label::before {
+            border: 1px solid #000000 !important;
+            background-color: #FFFFFF !important;
+        }._1HSFn0HzGo6w4ADApV8-c4 {
+            outline: 2px solid rgba(0, 0, 0, 0.8) !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:checked + label::after {
+            background-color: #000000 !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:hover::before {
+            border: 1px solid #0067B8 !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:hover::after {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:focus::before {
+            border: 1px solid #0067B8 !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:focus::after {
+            background-color: #000000 !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:disabled + label::before {
+            border: 1px solid rgba(0, 0, 0, 0.2) !important;
+            background-color: rgba(0, 0, 0, 0.2) !important;
+        }</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"name":"Learn","position":1,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/"},{"name":"Azure","position":2,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/azure/"},{"name":"Virtual Machines","position":3,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/azure/virtual-machines/"},{"name":"Linux","position":4,"@type":"ListItem","item":"https://learn.microsoft.com/en-us/azure/virtual-machines/linux/"}]}</script></head>
+
+<body lang="en-us" dir="ltr">
+	<div class="header-holder has-default-focus">
+		<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused position-fixed has-inner-focus focus-visible top-0 left-0 right-0 padding-xs has-text-centered has-body-background" tabindex="1">Skip to main content</a>
+
+		<div id="cookie-consent-holder" data-test-id="cookie-consent-container"></div><div id="banner-holder" class="has-default-focus has-overflow-hidden"><!----><section data-dismissable="disappearing" class="alert is-banner is-info border-bottom padding-inline-none" id="892422 live-banner" data-bi-name="892422 live-event">
+		<div class="uhf-container display-flex align-items-center font-size-sm">
+			<span class="flex-grow-1">
+				<span class="font-weight-semibold"><!---->Microsoft Ignite<!----></span>:
+				<span class="margin-right-xs"><!---->Connect with experts to learn how to leverage AI capabilities to scale productivity.<!----></span>
+				<a class="font-weight-semibold" data-bi-name="CTA" id="892422 live-banner-banner-anchor" href="https://ignite.microsoft.com/?wt.mc_ID=ignite2023_esc_corp_bn_oo_Purplebanner_devpurplebanner_productpages"><span><!---->Register now<!----></span><span class="icon" aria-hidden="true"><span class="docon docon-chevron-right-light"></span></span></a>
+			</span>
+			<button type="button" class="delete delete-lg margin-left-xs" data-dismiss="" data-bi-name="close">
+				<span class="visually-hidden"><!---->Dismiss alert<!----></span>
+			</button>
+		</div>
+	</section><!----></div>
+
+		<div id="unsupported-browser" style="
+			background-color: white;
+			color: black;
+			padding: 16px;
+			border-bottom: 1px solid grey;" hidden="">
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p style="font-size: 24px">This browser is no longer supported.</p>
+				<p style="font-size: 16px; margin-top: 16px;">Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.</p>
+				<div style="margin-top: 12px;">
+					<a href="https://go.microsoft.com/fwlink/p/?LinkID=2092881" style="
+						background-color: #0078d4;
+						border: 1px solid #0078d4;
+						color: white;
+						padding: 6px 12px;
+						border-radius: 2px;
+						display: inline-block;
+						">
+Download Microsoft Edge					</a>
+					<a href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge" style="
+							background-color: white;
+							padding: 6px 12px;
+							border: 1px solid #505050;
+							color: #171717;
+							border-radius: 2px;
+							display: inline-block;
+							">
+More info about Internet Explorer and Microsoft Edge					</a>
+				</div>
+			</div>
+
+		</div>
+		<!-- liquid-tag banners global -->
+		<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization"><!----> <div class="nav-bar" data-test-id="primary-nav-bar" data-bi-name="L1-header"><!----> <div class="nav-bar-brand display-flex align-items-center padding-none margin-left-xs margin-left-none-tablet margin-right-xxs">
+		
+					<a class="nav-bar-button padding-inline-none" itemprop="url" href="https://www.microsoft.com/" aria-label="Microsoft" data-bi-name="microsoft-logo-link">
+						 <div class="nav-bar-logo" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope">
+				
+		<svg xmlns="http://www.w3.org/2000/svg" width="108" height="23" viewBox="72 72 337 74" preserveAspectRatio="xMidYMin slice">
+			<g data-name="MS-symbol">
+				<clippath>
+					<path transform="matrix(1 0 0 -1 0 216)" d="M0 216h482V0H0z"></path>
+				</clippath>
+				<g clip-path="url(#a)">
+					<path d="M394.942 104.59h-10.858v25.003h-7.38V104.59h-5.182v-5.965h5.182v-4.308c0-3.254 1.06-5.92 3.178-7.998 2.12-2.079 4.835-3.118 8.15-3.118.882 0 1.666.045 2.35.135a9.37 9.37 0 011.806.407v6.296c-.24-.14-.663-.31-1.265-.512-.603-.2-1.296-.3-2.078-.3-1.528 0-2.702.476-3.526 1.43-.824.954-1.235 2.365-1.235 4.232v3.736h10.858v-6.959l7.321-2.229v9.188h7.381v5.965h-7.38v14.49c0 1.91.345 3.254 1.038 4.037.693.783 1.782 1.175 3.27 1.175.42 0 .927-.1 1.52-.3a7.178 7.178 0 001.552-.724v6.025c-.463.261-1.23.502-2.305.723a15.742 15.742 0 01-3.178.331c-3.073 0-5.378-.817-6.914-2.455-1.537-1.637-2.305-4.102-2.305-7.396zm-48.407 9.73c0 3.233.733 5.703 2.2 7.411 1.465 1.707 3.564 2.56 6.295 2.56 2.652 0 4.67-.853 6.055-2.56 1.386-1.708 2.08-4.238 2.08-7.592 0-3.334-.719-5.849-2.155-7.547-1.436-1.697-3.45-2.545-6.04-2.545-2.67 0-4.745.888-6.22 2.666-1.477 1.777-2.215 4.313-2.215 7.607m-7.592.24c0-5.12 1.446-9.177 4.338-12.17 2.892-2.993 6.91-4.489 12.05-4.489 4.841 0 8.621 1.441 11.343 4.323 2.721 2.883 4.082 6.774 4.082 11.674 0 5.021-1.447 9.018-4.338 11.99-2.892 2.973-6.829 4.458-11.81 4.458-4.8 0-8.61-1.41-11.432-4.232-2.822-2.82-4.233-6.673-4.233-11.554m-16.417-7.802c0 1.045.331 1.863.994 2.456.662.592 2.128 1.34 4.398 2.243 2.912 1.166 4.956 2.476 6.131 3.932 1.175 1.456 1.762 3.22 1.762 5.287 0 2.912-1.12 5.252-3.359 7.02-2.24 1.767-5.267 2.65-9.083 2.65-1.285 0-2.706-.155-4.263-.467-1.556-.31-2.877-.707-3.96-1.19v-7.169a17.945 17.945 0 004.277 2.198c1.526.543 2.911.814 4.157.814 1.647 0 2.862-.23 3.645-.693.784-.46 1.175-1.235 1.175-2.319 0-1.005-.406-1.853-1.22-2.546-.813-.693-2.355-1.492-4.624-2.395-2.69-1.125-4.599-2.39-5.724-3.796-1.125-1.406-1.687-3.193-1.687-5.362 0-2.792 1.11-5.086 3.33-6.884 2.217-1.797 5.095-2.696 8.63-2.696 1.084 0 2.3.12 3.645.361 1.346.242 2.47.553 3.374.934v6.93c-.964-.644-2.089-1.195-3.374-1.658-1.286-.462-2.56-.693-3.826-.693-1.386 0-2.465.271-3.238.813-.774.543-1.16 1.286-1.16 2.23m-35.066 7.562c0 3.233.733 5.703 2.2 7.411 1.465 1.707 3.564 2.56 6.295 2.56 2.652 0 4.67-.853 6.055-2.56 1.386-1.708 2.08-4.238 2.08-7.592 0-3.334-.719-5.849-2.155-7.547-1.436-1.697-3.449-2.545-6.039-2.545-2.672 0-4.745.888-6.222 2.666-1.476 1.777-2.214 4.313-2.214 7.607m-7.592.24c0-5.12 1.446-9.177 4.338-12.17 2.893-2.993 6.91-4.489 12.051-4.489 4.84 0 8.621 1.441 11.342 4.323 2.721 2.883 4.082 6.774 4.082 11.674 0 5.021-1.446 9.018-4.338 11.99-2.892 2.973-6.828 4.458-11.809 4.458-4.8 0-8.61-1.41-11.433-4.232-2.822-2.82-4.233-6.673-4.233-11.554m-3.136-16.448c.582 0 1.105.041 1.567.121.462.08.853.18 1.175.301v7.38c-.382-.28-.939-.546-1.672-.798-.733-.25-1.622-.376-2.666-.376-1.788 0-3.299.753-4.534 2.26-1.235 1.505-1.853 3.825-1.853 6.958v15.635h-7.29V98.624h7.29v4.88h.12c.663-1.687 1.667-3.007 3.013-3.96 1.346-.954 2.962-1.432 4.85-1.432m-27.956 26.18c1.084 0 2.28-.25 3.585-.754a15.06 15.06 0 003.615-1.988v6.778c-1.165.663-2.485 1.165-3.962 1.506-1.475.342-3.098.512-4.865.512-4.559 0-8.265-1.44-11.116-4.323-2.852-2.88-4.278-6.562-4.278-11.04 0-4.98 1.456-9.083 4.37-12.307 2.91-3.224 7.037-4.835 12.38-4.835 1.366 0 2.746.176 4.143.527 1.395.352 2.504.758 3.328 1.22v6.99c-1.125-.824-2.274-1.462-3.45-1.914a9.966 9.966 0 00-3.599-.678c-2.872 0-5.192.934-6.959 2.802-1.768 1.868-2.652 4.388-2.652 7.562 0 3.132.85 5.573 2.546 7.32 1.697 1.748 4.002 2.621 6.914 2.621m-22.112 5.302h-7.29V98.624h7.29zm-8.044-39.916c0-1.205.437-2.214 1.311-3.028.874-.813 1.913-1.22 3.118-1.22 1.285 0 2.35.417 3.193 1.25.844.834 1.266 1.833 1.266 2.998 0 1.185-.432 2.18-1.296 2.982-.864.804-1.918 1.205-3.163 1.205-1.246 0-2.295-.406-3.148-1.219-.854-.815-1.28-1.803-1.28-2.968m-6.274-3.284v43.2h-7.5v-33.86h-.12l-13.408 33.86h-4.97l-13.738-33.86h-.09v33.86h-6.929v-43.2h10.755l12.412 32.024h.18l13.105-32.024z" class="fill-current-color fill-link-text-forced-colors color-text-subtle"></path>
+					<path d="M106.214 106.214H71.996V71.996h34.218z" fill="#f25022"></path>
+					<path d="M143.993 106.214h-34.218V71.996h34.218z" fill="#7fba00"></path>
+					<path d="M106.214 143.993H71.996v-34.218h34.218z" fill="#00a4ef"></path>
+					<path d="M143.993 143.993h-34.218v-34.218h34.218z" fill="#ffb900"></path>
+				</g>
+			</g>
+		</svg>
+	
+		  </div>
+					</a>
+			  
+	</div> 
+				
+		<div class="nav-bar-item is-hidden-tablet">
+			<div class="nav-bar-menu">
+				<button class="nav-bar-button is-title" data-test-id="mobile-nav-expander" title="Global navigation" aria-expanded="false">
+					<span class="nav-bar-menu-title"><!---->Documentation<!----></span>
+					<div class="nav-bar-burger">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span class="nav-bar-burger-label"><!---->Global navigation<!----></span>
+					</div>
+				</button>
+			</div>
+		</div>
+	
+				
+		<nav class="nav-bar-nav" role="navigation" aria-label="Global">
+			<ul class="nav-bar-nav-list">
+				
+		<li class="nav-bar-item is-category">
+			<a data-test-id="header-link-category" class="nav-bar-button is-title has-hover-underline" itemprop="url" data-bi-name="L1-category-link" href="https://learn.microsoft.com/en-us/">
+				<span><!---->Learn<!----></span>
+			</a>
+		</li>
+	
+				<!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-documentation" class=" nav-bar-button has-hover-underline is-active" href="https://learn.microsoft.com/en-us/docs/" aria-current="true" data-bi-name="L1-navigation-link">
+						<span><!---->Documentation<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-training" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/training/" data-bi-name="L1-navigation-link">
+						<span><!---->Training<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-certifications" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/certifications/" data-bi-name="L1-navigation-link">
+						<span><!---->Certifications<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-q&amp;a" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/answers/" data-bi-name="L1-navigation-link">
+						<span><!---->Q&amp;A<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-code-samples" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/samples/browse/" data-bi-name="L1-navigation-link">
+						<span><!---->Code Samples<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-assessments" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/assessments/" data-bi-name="L1-navigation-link">
+						<span><!---->Assessments<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-shows" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/shows/" data-bi-name="L1-navigation-link">
+						<span><!---->Shows<!----></span>
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a data-test-id="header-link-events" class=" nav-bar-button has-hover-underline " href="https://learn.microsoft.com/en-us/events/" data-bi-name="L1-navigation-link">
+						<span><!---->Events<!----></span>
+					</a>
+				</li>
+		  <!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-107" data-bi-name="L1-navigation-menu" value="undefined">
+			<span><!---->More<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-107" aria-label="More">
+			<!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button is-active" href="https://learn.microsoft.com/en-us/docs/" aria-current="true" data-bi-name="L1-navigation-link">
+						Documentation
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/training/" data-bi-name="L1-navigation-link">
+						Training
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/certifications/" data-bi-name="L1-navigation-link">
+						Certifications
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/answers/" data-bi-name="L1-navigation-link">
+						Q&amp;A
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/samples/browse/" data-bi-name="L1-navigation-link">
+						Code Samples
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/assessments/" data-bi-name="L1-navigation-link">
+						Assessments
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/shows/" data-bi-name="L1-navigation-link">
+						Shows
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class=" nav-bar-button " href="https://learn.microsoft.com/en-us/events/" data-bi-name="L1-navigation-link">
+						Events
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!---->
+			</ul>
+		</nav>
+	
+				<span class="nav-bar-spacer"></span>
+				
+		<div class="nav-bar-search " id="ax-108" hidden="">
+			
+		<form class="nav-bar-search-form" method="GET" name="nav-bar-search-form" role="search" id="nav-bar-search-form" aria-label="Search" action="https://learn.microsoft.com/en-us/search/">
+			<div class="autocomplete" data-bi-name="autocomplete"><!---->
+			<div class="field-body control ">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-search-input" data-test-id="site-search-input" class="autocomplete-input input input-sm
+						
+						" type="search" name="terms" aria-expanded="false" aria-owns="ax-109-listbox" aria-controls="ax-109-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-search-input-description" placeholder="Search" pattern=".*">
+
+				<span aria-hidden="true" class="icon is-small is-left" hidden="">
+					<span class="has-text-primary docon docon-"></span>
+				</span>
+
+				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+
+				<span hidden="" id="ms--site-search-input-description">
+					Suggestions will filter as you type
+				</span>
+			</div>
+
+			<ul role="listbox" id="ax-109-listbox" data-test-id="site-search-input-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+				
+				
+			</ul>
+		<!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" hidden="" value="">
+			
+			
+		</form>
+	
+		</div>
+		
+					<div class="nav-bar-search">
+						<!-- hidden when the width drops to tablet -->
+						
+		<form class="nav-bar-search-form" method="GET" name="nav-bar-search-form" role="search" id="nav-bar-search-form-desktop" aria-label="Search" action="https://learn.microsoft.com/en-us/search/">
+			<div class="autocomplete" data-bi-name="autocomplete"><!---->
+			<div class="field-body control has-icons-left">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-search-input-desktop" data-test-id="site-search-input-desktop" class="autocomplete-input input input-sm
+						control has-icons-left
+						" type="search" name="terms" aria-expanded="false" aria-owns="ax-110-listbox" aria-controls="ax-110-listbox" aria-activedescendant="" aria-label="Search" aria-describedby="ms--site-search-input-desktop-description" placeholder="Search" pattern=".*">
+
+				<span aria-hidden="true" class="icon is-small is-left">
+					<span class="has-text-primary docon docon-search"></span>
+				</span>
+
+				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+
+				<span hidden="" id="ms--site-search-input-desktop-description">
+					Suggestions will filter as you type
+				</span>
+			</div>
+
+			<ul role="listbox" id="ax-110-listbox" data-test-id="site-search-input-desktop-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+				
+				
+			</ul>
+		<!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" hidden="" value="">
+			
+			
+		</form>
+	
+					</div>
+			  
+		<div class="nav-bar-search " hidden="">
+			<div class="nav-bar-search-form-expander">
+				<button id="form-expander" data-test-id="form-expander" class="nav-bar-button has-hover-underline " title="Search" aria-expanded="false" aria-controls="ax-108">
+					
+		<span class="is-visually-hidden-mobile"><!---->Search<!----></span>
+		<span class="icon margin-left-xxs" aria-hidden="true">
+			<span class="docon docon-search"></span>
+		</span>
+	
+				</button>
+			</div>
+		</div>
+	
+				
+		<div class="nav-bar-profile">
+			
+		<a class="docs-sign-in auth-status-determined not-authenticated" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#"> Sign in </a>
+	 
+		<div class="dropdown has-caret auth-status-determined authenticated">
+			<button class="dropdown-trigger button-reset" aria-controls="user-menu" aria-expanded="false" data-bi-name="L1-user-menu" aria-label="Your Account">
+				<figure class="image is-36x36">
+					<img class="has-body-background-medium border-radius-rounded" alt="" data-profile-property="avatarThumbnailUrl">
+				</figure>
+			</button>
+			<div class="dropdown-menu box justify-content-flex-start has-body-background" id="user-menu" data-bi-name="user-menu" role="menu">
+				<div class="media is-user-dir">
+					<div class="media-left">
+						<figure class="image is-48x48" aria-hidden="true">
+							<img class="has-body-background-medium border-radius-rounded" aria-labelledby="displayName" alt="" data-profile-property="avatarUrl">
+						</figure>
+					</div>
+					<div class="media-content">
+						<h2 class="title font-size-lg">
+							<span id="displayName" class="is-inline-truncated has-max-width-200" data-profile-property="displayName"></span>
+						</h2>
+						<p class="subtitle font-size-sm margin-bottom-none">
+							<span class="is-inline-truncated has-max-width-200" data-profile-property="upn"></span>
+						</p>
+					</div>
+				</div>
+				<ul class="padding-top-xs padding-bottom-xs">
+					<li class="padding-bottom-xs">
+						<a data-profile-property="profileUrl" href="https://learn.microsoft.com/en-us/users/me/activity/"><!---->Profile<!----></a>
+					</li>
+					<li>
+						<a data-profile-property="settingsUrl" href="https://learn.microsoft.com/en-us/users/me/settings/"><!---->Settings<!----></a>
+					</li>
+				</ul>
+				<div class="border-top padding-top-xs">
+					<a class="docs-sign-out" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#"><!---->Sign out<!----></a>
+				</div>
+			</div>
+		</div>
+	
+		</div>
+	
+			 <!----></div> <div class="nav-bar border-top is-hidden-mobile" data-test-id="secondary-nav-bar" data-bi-name="L2-header"><!----> 
+		<a class="nav-bar-button is-title has-hover-underline" itemprop="url" data-bi-name="L2-category-link" href="https://learn.microsoft.com/en-us/azure/">
+			<span>
+				Azure
+				
+			</span>
+		</a>
+	 
+		
+		<nav class="nav-bar-nav" role="navigation" aria-label="Site">
+			<ul class="nav-bar-nav-list">
+				
+				<!----> <li class="dropdown nav-bar-item">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-111" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Product documentation<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-111" aria-label="Product documentation">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=compute" data-bi-name="L2-navigation-link">
+						Compute
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=networking" data-bi-name="L2-navigation-link">
+						Networking
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=storage" data-bi-name="L2-navigation-link">
+						Storage
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=web" data-bi-name="L2-navigation-link">
+						Web
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=mobile" data-bi-name="L2-navigation-link">
+						Mobile
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=containers" data-bi-name="L2-navigation-link">
+						Containers
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=databases" data-bi-name="L2-navigation-link">
+						Databases
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/" data-bi-name="L2-navigation-link">
+						All products
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-112" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Architecture<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-112" aria-label="Architecture">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/guide/" data-bi-name="L2-navigation-link">
+						Get started
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/browse/" data-bi-name="L2-navigation-link">
+						Reference architectures
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/" data-bi-name="L2-navigation-link">
+						Cloud Adoption Framework for Azure
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/framework/" data-bi-name="L2-navigation-link">
+						Azure Well-Architected Framework
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/patterns/" data-bi-name="L2-navigation-link">
+						Design patterns
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/assessments/" data-bi-name="L2-navigation-link">
+						Assessments
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-113" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Learn Azure<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-113" aria-label="Learn Azure">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/training/azure/" data-bi-name="L2-navigation-link">
+						Self-paced learning paths
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://go.microsoft.com/fwlink/?linkid=2012831" data-bi-name="L2-navigation-link">
+						Pluralsight
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/training/courses/browse/?products=azure" data-bi-name="L2-navigation-link">
+						Instructor-led courses
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-114" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Develop<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-114" aria-label="Develop">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/python/" data-bi-name="L2-navigation-link">
+						Python
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/dotnet/azure/" data-bi-name="L2-navigation-link">
+						.NET
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/javascript/" data-bi-name="L2-navigation-link">
+						JavaScript
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/java/" data-bi-name="L2-navigation-link">
+						Java
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/go/" data-bi-name="L2-navigation-link">
+						Go
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-115" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Resources<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-115" aria-label="Resources">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/pricing/" data-bi-name="L2-navigation-link">
+						Pricing
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/overview/sales-number/" data-bi-name="L2-navigation-link">
+						Contact sales
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/resources/videos/home/" data-bi-name="L2-navigation-link">
+						Videos
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/overview/webinars/" data-bi-name="L2-navigation-link">
+						Webinars
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/updates/" data-bi-name="L2-navigation-link">
+						Updates
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/resources/whitepapers/" data-bi-name="L2-navigation-link">
+						White papers
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/blog/" data-bi-name="L2-navigation-link">
+						Blog
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/support/options/" data-bi-name="L2-navigation-link">
+						Support
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  has-hover-underline" aria-controls="ax-116" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->More<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-116" aria-label="More">
+			<!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  " aria-controls="ax-117" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Product documentation<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-right-light "></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-117" aria-label="Product documentation">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=compute" data-bi-name="L2-navigation-link">
+						Compute
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=networking" data-bi-name="L2-navigation-link">
+						Networking
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=storage" data-bi-name="L2-navigation-link">
+						Storage
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=web" data-bi-name="L2-navigation-link">
+						Web
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=mobile" data-bi-name="L2-navigation-link">
+						Mobile
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=containers" data-bi-name="L2-navigation-link">
+						Containers
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/?product=databases" data-bi-name="L2-navigation-link">
+						Databases
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/" data-bi-name="L2-navigation-link">
+						All products
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  " aria-controls="ax-118" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Architecture<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-right-light "></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-118" aria-label="Architecture">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/guide/" data-bi-name="L2-navigation-link">
+						Get started
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/browse/" data-bi-name="L2-navigation-link">
+						Reference architectures
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/" data-bi-name="L2-navigation-link">
+						Cloud Adoption Framework for Azure
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/framework/" data-bi-name="L2-navigation-link">
+						Azure Well-Architected Framework
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/architecture/patterns/" data-bi-name="L2-navigation-link">
+						Design patterns
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/assessments/" data-bi-name="L2-navigation-link">
+						Assessments
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  " aria-controls="ax-119" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Learn Azure<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-right-light "></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-119" aria-label="Learn Azure">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/training/azure/" data-bi-name="L2-navigation-link">
+						Self-paced learning paths
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://go.microsoft.com/fwlink/?linkid=2012831" data-bi-name="L2-navigation-link">
+						Pluralsight
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/training/courses/browse/?products=azure" data-bi-name="L2-navigation-link">
+						Instructor-led courses
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  " aria-controls="ax-120" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Develop<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-right-light "></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-120" aria-label="Develop">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/python/" data-bi-name="L2-navigation-link">
+						Python
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/dotnet/azure/" data-bi-name="L2-navigation-link">
+						.NET
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/javascript/" data-bi-name="L2-navigation-link">
+						JavaScript
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/java/" data-bi-name="L2-navigation-link">
+						Java
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://learn.microsoft.com/en-us/azure/developer/go/" data-bi-name="L2-navigation-link">
+						Go
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button  " aria-controls="ax-121" data-bi-name="L2-navigation-menu" value="undefined">
+			<span><!---->Resources<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-right-light "></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-121" aria-label="Resources">
+			<!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/pricing/" data-bi-name="L2-navigation-link">
+						Pricing
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/overview/sales-number/" data-bi-name="L2-navigation-link">
+						Contact sales
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/resources/videos/home/" data-bi-name="L2-navigation-link">
+						Videos
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/overview/webinars/" data-bi-name="L2-navigation-link">
+						Webinars
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/updates/" data-bi-name="L2-navigation-link">
+						Updates
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/resources/whitepapers/" data-bi-name="L2-navigation-link">
+						White papers
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/blog/" data-bi-name="L2-navigation-link">
+						Blog
+					</a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item">
+					<a class="has-external-link-indicator nav-bar-button " href="https://azure.microsoft.com/support/options/" data-bi-name="L2-navigation-link">
+						Support
+					</a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!---->
+		</ul>
+	</li><!---->
+			</ul>
+		</nav>
+	
+		<span class="nav-bar-spacer"></span>
+		
+		<ol class="nav-bar-list">
+			
+		<li class="nav-bar-item has-spacing">
+			<a data-test-id="navbar-primary-cta" class="button button-sm button-primary " href="https://portal.azure.com/" data-bi-name="L2-secondary-cta">
+				Portal
+			</a>
+		</li>
+	 
+		<li class="nav-bar-item ">
+			<a data-test-id="navbar-primary-cta" class="button button-sm button-primary button-filled" href="https://azure.microsoft.com/free/" data-bi-name="L2-primary-cta">
+				Free account
+			</a>
+		</li>
+	
+		</ol>
+	 
+	 <!----></div> <!----></header>		</div>
+
+
+			<div id="content-header" class="content-header uhf-container has-padding has-default-focus border-bottom-none" data-bi-name="content-header">
+				<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+					<button type="button" class="contents-button button button-sm margin-right-xxs" data-bi-name="contents-expand" aria-haspopup="true" data-contents-button="">
+						<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+						<span class="contents-expand-title">
+Table of contents						</span>
+					</button>
+					<button type="button" class="ap-collapse-behavior ap-expanded button button-sm" data-bi-name="ap-collapse" aria-controls="action-panel">
+						<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+						<span>Exit focus mode</span>
+					</button>
+				</div>
+			</div>
+
+		<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+			<!-- liquid-tag banners sectional -->
+		</div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile ">
+
+			<div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="margin-top-sm-tablet position-sticky display-flex flex-direction-column" role="navigation" aria-label="Primary" data-bi-name="left toc" style="top: 24px; height: calc(100vh - 208px); max-height: 9349.5px;"><form action="javascript:" role="search" aria-label="Search" class="margin-bottom-xxs"><label class="visually-hidden" for="ax-122">Search</label><div class="autocomplete display-block" data-bi-name="autocomplete"><!---->
+			<div class="field-body control has-icons-left">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="ax-122" data-test-id="ax-122" class="autocomplete-input input input-sm
+						control has-icons-left
+						width-full" type="text" aria-expanded="false" aria-owns="ax-123-listbox" aria-controls="ax-123-listbox" aria-activedescendant="" aria-describedby="ms--ax-122-description" placeholder="Filter by title" pattern=".*">
+
+				<span aria-hidden="true" class="icon is-small is-left">
+					<span class="has-text-primary docon docon-filter-settings"></span>
+				</span>
+
+				<span aria-hidden="true" class="autocomplete-loader loader has-text-primary " hidden=""></span>
+
+				<span hidden="" id="ms--ax-122-description">
+					Suggestions will filter as you type
+				</span>
+			</div>
+
+			<ul role="listbox" id="ax-123-listbox" data-test-id="ax-122-listbox" class="autocomplete-suggestions is-vertically-scrollable padding-xxs " aria-label="Suggestions" hidden="">
+				
+				
+			</ul>
+		<!----></div></form><ul class="tree table-of-contents is-vertically-scrollable flex-grow-1 flex-shrink-1" role="tree" aria-label="Table of contents" data-bi-name="tree" data-is-collapsible="true"><li role="none"><a aria-setsize="19" aria-level="1" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/">Virtual Machines Documentation</a></li><li role="none"><a aria-setsize="19" aria-level="1" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/overview">Overview</a></li><li role="none"><a aria-setsize="19" aria-level="1" aria-posinset="3" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/whats-new">What's new</a></li><li class="tree-item is-expanded" aria-setsize="19" aria-level="1" aria-posinset="4" role="treeitem" tabindex="-1" id="title-4-1" aria-expanded="true"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Quickstarts</span><ul class="tree-group" role="group"><li class="tree-item is-expanded" aria-setsize="3" aria-level="2" aria-posinset="1" role="treeitem" tabindex="-1" id="title-4-1_1-2" aria-expanded="true"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Create a Linux VM</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="6" aria-level="3" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli">CLI</a></li><li role="none"><a aria-setsize="6" aria-level="3" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal">Portal</a></li><li role="none"><a aria-setsize="6" aria-level="3" aria-posinset="3" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-powershell">PowerShell</a></li><li class="tree-item is-expanded" aria-setsize="6" aria-level="3" aria-posinset="4" role="treeitem" tabindex="-1" id="title-4-1_1-2_4-3" aria-expanded="true"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Terraform</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="2" aria-level="4" aria-posinset="1" role="treeitem" tabindex="0" class="tree-item is-leaf has-external-link-indicator is-selected" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform" aria-current="page">Terraform VM</a></li><li role="none"><a aria-setsize="2" aria-level="4" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-cluster-create-terraform">Terraform VM cluster</a></li></ul></li><li role="none"><a aria-setsize="6" aria-level="3" aria-posinset="5" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bicep">Bicep</a></li><li role="none"><a aria-setsize="6" aria-level="3" aria-posinset="6" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-template">ARM template</a></li></ul></li><li class="tree-item" aria-setsize="3" aria-level="2" aria-posinset="2" role="treeitem" tabindex="-1" id="title-4-1_2-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Create a Windows VM</span></li><li class="tree-item" aria-setsize="3" aria-level="2" aria-posinset="3" role="treeitem" tabindex="-1" id="title-4-1_3-2" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Create a Virtual Machine Scale Set</span></li></ul></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="5" role="treeitem" tabindex="-1" id="title-5-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Tutorials</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="6" role="treeitem" tabindex="-1" id="title-6-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Develop</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="7" role="treeitem" tabindex="-1" id="title-7-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Workloads</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="8" role="treeitem" tabindex="-1" id="title-8-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Instances</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="9" role="treeitem" tabindex="-1" id="title-9-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Availability and scale</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="10" role="treeitem" tabindex="-1" id="title-10-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Disks</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="11" role="treeitem" tabindex="-1" id="title-11-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Networking</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="12" role="treeitem" tabindex="-1" id="title-12-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Security</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="13" role="treeitem" tabindex="-1" id="title-13-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Updates and maintenance</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="14" role="treeitem" tabindex="-1" id="title-14-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Monitoring</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="15" role="treeitem" tabindex="-1" id="title-15-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Backup and recovery</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="16" role="treeitem" tabindex="-1" id="title-16-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Reliability in Virtual Machines</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="17" role="treeitem" tabindex="-1" id="title-17-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Infrastructure automation</span></li><li class="tree-item" aria-setsize="19" aria-level="1" aria-posinset="18" role="treeitem" tabindex="-1" id="title-18-1" aria-expanded="false"><span data-bi-name="tree-expander" class="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Resources</span></li><li role="none"><a aria-setsize="19" aria-level="1" aria-posinset="19" role="treeitem" tabindex="-1" class="tree-item is-leaf has-external-link-indicator" data-bi-name="tree-leaf" href="https://learn.microsoft.com/en-us/azure/virtual-machines/vm-support-help">Support and troubleshooting</a></li></ul><div class="padding-xxs padding-none-tablet border-top border-bottom-tablet"><button class="button button-sm button-clear button-block inner-focus justify-content-flex-start-tablet" data-bi-name="download-pdf" rel="nofollow"><!---->
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-dictionary-download"></span>
+			</span>
+			<span><!---->Download PDF<!----></span>
+		<!----></button></div></nav>
+			</div>
+
+			<!-- .primary-holder -->
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<!--div.columns -->
+				<div class="columns is-gapless-mobile has-large-gaps ">
+
+
+					<div id="main-column" class="column  is-full is-8-desktop">
+
+						<main id="main" class="" role="main" data-bi-name="content" lang="en-us" dir="ltr">
+							<!-- article-header -->
+							<div id="article-header" class="background-color-body margin-top-sm-tablet margin-bottom-xs display-none-print">
+								<div class="display-flex align-items-center ">
+									<details id="article-header-breadcrumbs-overflow-popover" class="popover" data-for="article-header-breadcrumbs" hidden="">
+										<summary class="button button-clear button-primary button-sm inner-focus" aria-label="All breadcrumbs">
+											<span class="icon">
+												<span class="docon docon-more"></span>
+											</span>
+										</summary>
+										<div id="article-header-breadcrumbs-overflow" class="popover-content padding-none"><!---->
+			<nav>
+				<ol class="list-style-none">
+					<!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/">
+										Learn
+									</a>
+								</li>
+							<!----><!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/azure/">
+										Azure
+									</a>
+								</li>
+							<!----><!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/azure/virtual-machines/">
+										Virtual Machines
+									</a>
+								</li>
+							<!----><!---->
+								<li class="line-clamp-1">
+									<a class="display-block has-inner-focus padding-inline-xs padding-block-xxs border-radius font-size-sm" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/">
+										Linux
+									</a>
+								</li>
+							<!---->
+				</ol>
+			</nav>
+			
+		<!----></div>
+									</details>
+
+									<bread-crumbs id="article-header-breadcrumbs" data-test-id="article-header-breadcrumbs" class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs" style="display: block; white-space: nowrap; overflow: hidden;"><!---->
+			<nav>
+				<ol class="breadcrumbs">
+					<!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+									<a href="https://learn.microsoft.com/en-us/"><!---->Learn<!----></a>
+								</li>
+							<!----><!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+									<a href="https://learn.microsoft.com/en-us/azure/"><!---->Azure<!----></a>
+								</li>
+							<!----><!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="">
+									<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/"><!---->Virtual Machines<!----></a>
+								</li>
+							<!----><!---->
+								<li class="breadcrumbs-item" data-bread-crumbs-collapse-target="" style="">
+									<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/" style=""><!---->Linux<!----></a>
+								</li>
+							<!---->
+				</ol>
+			</nav>
+		<!----></bread-crumbs>
+
+									<div id="article-header-page-actions" class="margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch">
+
+										<a id="lang-link-tablet" class="button button-primary button-clear button-sm display-none display-inline-flex-tablet" title="Read in English" data-bi-name="language-toggle" data-read-in-link="" hidden="" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
+											<span class="icon margin-none" aria-hidden="true" data-read-in-link-icon="">
+												<span class="docon docon-locale-globe"></span>
+											</span>
+											<span class="is-visually-hidden" data-read-in-link-text="">Read in English</span>
+										</a>
+
+											<button type="button" class="collection button button-clear button-sm button-primary display-none display-inline-flex-tablet" data-list-type="collection" data-bi-name="collection" title="Add Quickstart: Use Terraform to create a Linux VM - Azure Virtual Machines | Microsoft Learn to a collection" data-pressed="false">
+												<span class="icon margin-none" aria-hidden="true">
+													<span class="docon docon-circle-addition"></span>
+												</span>
+												<span class="collection-status is-visually-hidden">Add</span>
+											</button>
+										
+
+											<a data-contenteditbtn="" class="button button-clear button-sm text-decoration-none button-primary display-none display-inline-flex-tablet" aria-label="Edit" title="Edit This Document" data-bi-name="edit" href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-machines/linux/quick-create-terraform.md" data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-machines/linux/quick-create-terraform.md" data-original_content_git_url_template="{repo}/blob/{branch}/articles/virtual-machines/linux/quick-create-terraform.md" data-pr_repo="" data-pr_branch="">
+												<span class="icon margin-none" aria-hidden="true">
+													<span class="docon docon-edit-outline"></span>
+												</span>
+											</a>
+										
+
+
+										
+										<details class="popover popover-right" id="article-header-page-actions-overflow">
+											<summary class="justify-content-flex-start button button-clear button-sm button-primary" aria-label="More actions">
+												<span class="icon" aria-hidden="true">
+													<span class="docon docon-more-vertical"></span>
+												</span>
+											</summary>
+											<div class="popover-content padding-none">
+													<button data-page-action-item="overflow-mobile" type="button" class="justify-content-flex-start button-block button-sm has-inner-focus button button-clear display-none-tablet" data-bi-name="contents-expand" data-contents-button="" data-popover-close="">
+														<span class="icon">
+															<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+														</span>
+															<span class="contents-expand-title">Table of contents</span>
+													</button>
+
+												<a id="lang-link-overflow" class="justify-content-flex-start button-sm has-inner-focus button button-clear button-block display-none-tablet" title="Read in English" data-bi-name="language-toggle" data-page-action-item="overflow-mobile" data-check-hidden="true" data-read-in-link="" hidden="" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli" data-bi="{&quot;cN&quot;:&quot;language-toggle&quot;,&quot;value&quot;:&quot;off&quot;}">
+													<span class="icon" aria-hidden="true" data-read-in-link-icon="">
+														<span class="docon docon-locale-globe"></span>
+													</span>
+													<span data-read-in-link-text="">Read in English</span>
+												</a>
+
+													<button type="button" class="collection justify-content-flex-start button button-clear button-sm has-inner-focus button-block display-none-tablet" data-list-type="collection" data-bi-name="collection" title="Add Quickstart: Use Terraform to create a Linux VM - Azure Virtual Machines | Microsoft Learn to a collection" data-page-action-item="overflow-mobile" data-check-hidden="true" data-popover-close="" data-pressed="false">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-circle-addition"></span>
+														</span>
+														<span class="collection-status">Add</span>
+													</button>
+
+													<a data-contenteditbtn="" class="button button-clear button-block button-sm has-inner-focus justify-content-flex-start text-decoration-none display-none-tablet" aria-label="Edit" title="Edit This Document" data-bi-name="edit" href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-machines/linux/quick-create-terraform.md" data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-machines/linux/quick-create-terraform.md" data-original_content_git_url_template="{repo}/blob/{branch}/articles/virtual-machines/linux/quick-create-terraform.md" data-pr_repo="" data-pr_branch="">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-edit-outline"></span>
+														</span>
+														<span>Edit</span>
+													</a>
+
+													<button class="button button-block button-clear button-sm justify-content-flex-start has-inner-focus" title="Print" type="button" aria-label="Print" data-bi-name="print" data-page-action-item="overflow-all" data-popover-close="" data-print-page="" data-check-hidden="true">
+														<span class="icon" aria-hidden="true">
+															<span class="docon docon-print"></span>
+														</span>
+														<span>Print</span>
+													</button>
+
+													<div aria-hidden="true" class="margin-none
+														border-top" data-page-action-item="overflow-all"></div>
+
+													
+														<a class="button button-clear button-sm has-inner-focus button-block text-decoration-none justify-content-flex-start share-twitter" data-bi-name="twitter" data-page-action-item="overflow-all" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform%3Ftabs%3Dazure-cli%26WT.mc_id%3Dtwitter&amp;text=Today%20I%20completed%20%22Quickstart%3A%20Use%20Terraform%20to%20create%20a%20Linux%20VM%20-%20Azure%20Virtual%20Machines%20%7C%20Microsoft%20Learn%22!%20I%27m%20so%20proud%20to%20be%20celebrating%20this%20achievement%20and%20hope%20this%20inspires%20you%20to%20start%20your%20own%20%40MicrosoftLearn%20journey!&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform%3Ftabs%3Dazure-cli%26WT.mc_id%3Dtwitter">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-brand-twitter"></span>
+															</span>
+															<span>Twitter</span>
+														</a>
+														<a class="button button-clear button-sm has-inner-focus button-block text-decoration-none justify-content-flex-start share-linkedin" data-bi-name="linkedin" data-page-action-item="overflow-all" href="https://www.linkedin.com/feed/?shareActive=true&amp;text=Today%20I%20completed%20%22Quickstart%3A%20Use%20Terraform%20to%20create%20a%20Linux%20VM%20-%20Azure%20Virtual%20Machines%20%7C%20Microsoft%20Learn%22!%20I%27m%20so%20proud%20to%20be%20celebrating%20this%20achievement%20and%20hope%20this%20inspires%20you%20to%20start%20your%20own%20%40MicrosoftLearn%20journey!%0A%0D%0Ahttps%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform%3Ftabs%3Dazure-cli%26WT.mc_id%3Dlinkedin">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-brand-linkedin"></span>
+															</span>
+															<span>LinkedIn</span>
+														</a>
+														<a class="button button-clear button-sm button-block has-inner-focus text-decoration-none justify-content-flex-start share-facebook" data-bi-name="facebook" data-page-action-item="overflow-all" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform%3Ftabs%3Dazure-cli%26WT.mc_id%3Dfacebook">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-brand-facebook"></span>
+															</span>
+															<span>Facebook</span>
+														</a>
+														<a class="button button-clear button-sm button-block has-inner-focus text-decoration-none justify-content-flex-start share-email" data-bi-name="email" data-page-action-item="overflow-all" href="mailto:?subject=%5BShared%20Article%5D%20Quickstart%3A%20Use%20Terraform%20to%20create%20a%20Linux%20VM%20-%20Azure%20Virtual%20Machines%20%7C%20Microsoft%20Learn&amp;body=Today%20I%20completed%20%22Quickstart%3A%20Use%20Terraform%20to%20create%20a%20Linux%20VM%20-%20Azure%20Virtual%20Machines%20%7C%20Microsoft%20Learn%22!%20I%27m%20so%20proud%20to%20be%20celebrating%20this%20achievement%20and%20hope%20this%20inspires%20you%20to%20start%20your%20own%20%40MicrosoftLearn%20journey!%0A%0D%0Ahttps%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform%3Ftabs%3Dazure-cli%26WT.mc_id%3Demail">
+															<span class="icon" aria-hidden="true">
+																<span class="docon docon-mail-message-fill"></span>
+															</span>
+															<span>Email</span>
+														</a>
+												
+											</div>
+										</details>
+										
+									</div>
+								</div>
+							</div>
+							<!-- end article-header -->
+
+
+							<div>
+								<button type="button" class="border contents-button button button-clear button-sm is-hidden-tablet has-inner-focus" data-bi-name="contents-expand" data-contents-button="" hidden="">
+									<span class="icon">
+										<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+									</span>
+										<span class="contents-expand-title">Table of contents</span>
+								</button>
+							</div>
+
+							<!-- end mobile-contents button  -->
+
+							<div class="content ">
+
+
+								<h1 id="quickstart-use-terraform-to-create-a-linux-vm">Quickstart: Use Terraform to create a Linux VM</h1>
+
+
+									<div class="display-flex justify-content-space-between align-items-center flex-wrap-wrap page-metadata-container">
+										<div class="margin-right-xxs">
+											<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+													<li>
+Article													</li>
+
+													<li class="visibility-hidden-visual-diff">
+														<time class="" data-article-date="" aria-label="Article review date" datetime="2023-07-24T15:01:00.000Z" data-article-date-source="calculated">07/24/2023</time>
+													</li>
+														<li class="contributors-holder display-none-print">
+															<button aria-label="View all contributors" class="contributors-button link-button" data-bi-name="contributors" title="View all contributors">
+1 contributor															</button>
+														</li>
+											</ul>
+										</div>
+
+<div id="user-feedback" class="margin-block-xxs display-none-print" data-hide-on-archived="">
+	<button id="user-feedback-button" data-test-id="conceptual-feedback-button" class="button button-sm button-clear button-primary" type="button" data-bi-name="user-feedback-button" data-user-feedback-button="">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-like"></span>
+		</span>
+		<span>Feedback</span>
+	</button>
+</div>
+									</div>
+
+									<div id="ms--content-well-notifications" data-bi-name="content-well-notification"><!---->
+		<div class="notification">
+			<div class="notification-content"><!----> <p class="margin-top-none"><!---->This article was partially created with the help of AI. An author reviewed and revised the content as needed. <a href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content">Read more</a>.<!----></p> <!----></div>
+		</div>
+	<!----></div>
+
+										<nav id="center-doc-outline" class="doc-outline display-none-print margin-bottom-sm" data-bi-name="intopic toc" role="navigation" aria-label="In this article"><!----> 
+		<h2 id="ms--in-this-article" class="title is-6 margin-block-xs"><!---->In this article<!----></h2>
+		<ol id="content-well-in-this-article-list" class="border-left padding-left-xxs" aria-live="polite" aria-relevant="additions">
+			<!---->
+					<li class="">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#prerequisites"><!---->Prerequisites<!----></a>
+					</li>
+				<!---->
+					<li class="">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#implement-the-terraform-code"><!---->Implement the Terraform code<!----></a>
+					</li>
+				<!---->
+					<li class="">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#initialize-terraform"><!---->Initialize Terraform<!----></a>
+					</li>
+				<!---->
+					<li class="">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#create-a-terraform-execution-plan"><!---->Create a Terraform execution plan<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#apply-a-terraform-execution-plan"><!---->Apply a Terraform execution plan<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#verify-the-results"><!---->Verify the results<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#clean-up-resources"><!---->Clean up resources<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#troubleshoot-terraform-on-azure"><!---->Troubleshoot Terraform on Azure<!----></a>
+					</li>
+				<!---->
+					<li class="expandable">
+						<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#next-steps"><!---->Next steps<!----></a>
+					</li>
+				<!---->
+		</ol>
+	 
+		<button type="button" aria-expanded="false" data-show-more="" class="link-button font-weight-semibold font-size-sm margin-top-xxs margin-left-xs" aria-controls="content-well-in-this-article-list" data-title="Show 5 more" data-bi-name="show-more-btn">
+			<span class="show-more-text "><!---->Show 5 more<!----></span>
+			
+		</button>
+	 <!----></nav>
+
+								<!-- <content> -->
+									<p><strong>Applies to:</strong> ✔️ Linux VMs</p>
+<p>Article tested with the following Terraform and Terraform provider versions:</p>
+<p>This article shows you how to create a complete Linux environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.</p>
+<p><a href="https://www.terraform.io/" data-linktype="external">Terraform</a> enables the definition, preview, and deployment of cloud infrastructure. Using Terraform, you create configuration files using <a href="https://www.terraform.io/docs/configuration/syntax.html" data-linktype="external">HCL syntax</a>. The HCL syntax allows you to specify the cloud provider - such as Azure - and the elements that make up your cloud infrastructure. After you create your configuration files, you create an <em>execution plan</em> that allows you to preview your infrastructure changes before they're deployed. Once you verify the changes, you apply the execution plan to deploy the infrastructure.</p>
+<p>In this article, you learn how to:</p>
+<div class="checklist">
+<ul>
+<li>Create a random value for the Azure resource group name using <a href="https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet" data-linktype="external">random_pet</a>.</li>
+<li>Create an Azure resource group using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group" data-linktype="external">azurerm_resource_group</a>.</li>
+<li>Create a virtual network (VNET) using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network" data-linktype="external">azurerm_virtual_network</a>.</li>
+<li>Create a subnet using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet" data-linktype="external">azurerm_subnet</a>.</li>
+<li>Create a public IP using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip" data-linktype="external">azurerm_public_ip</a>.</li>
+<li>Create a network security group using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group" data-linktype="external">azurerm_network_security_group</a>.</li>
+<li>Create a network interface using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface" data-linktype="external">azurerm_network_interface</a>.</li>
+<li>Create an association between the network security group and the network interface using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association" data-linktype="external">azurerm_network_interface_security_group_association</a>.</li>
+<li>Generate a random value for a unique storage account name using <a href="https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id" data-linktype="external">random_id</a>.</li>
+<li>Create a storage account for boot diagnostics using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account" data-linktype="external">azurerm_storage_account</a>.</li>
+<li>Create a Linux VM using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine" data-linktype="external">azurerm_linux_virtual_machine</a></li>
+<li>Create an AzAPI resource <a href="https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource" data-linktype="external">azapi_resource</a>.</li>
+<li>Create an AzAPI resource to generate an SSH key pair using <a href="https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action" data-linktype="external">azapi_resource_action</a>.</li>
+</ul>
+</div>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#prerequisites" aria-label="Section titled: Prerequisites"></a><h2 id="prerequisites" class="heading-anchor">Prerequisites</h2></div>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/developer/terraform/quickstart-configure" data-linktype="absolute-path">Install and configure Terraform</a></li>
+</ul>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#implement-the-terraform-code" aria-label="Section titled: Implement the Terraform code"></a><h2 id="implement-the-terraform-code" class="heading-anchor">Implement the Terraform code</h2></div>
+<div class="alert is-info">
+<p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+<p>The sample code for this article is located in the <a href="https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure" data-linktype="external">Azure Terraform GitHub repo</a>. You can view the log file containing the <a href="https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure/TestRecord.md" data-linktype="external">test results from current and previous versions of Terraform</a>.</p>
+<p>See more <a href="https://learn.microsoft.com/en-us/azure/terraform" data-linktype="absolute-path">articles and sample code showing how to use Terraform to manage Azure resources</a></p>
+</div>
+<ol>
+<li><p>Create a directory in which to test the sample Terraform code and make it the current directory.</p>
+</li>
+<li><p>Create a file named <code>providers.tf</code> and insert the following code:</p>
+<div class="codeHeader" id="code-try-0" data-bi-name="code-header"><span class="language">Terraform</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-Terraform" data-author-content="terraform {
+  required_version = &quot;&gt;=0.12&quot;
+
+  required_providers {
+    azapi = {
+      source  = &quot;azure/azapi&quot;
+      version = &quot;~&gt;1.5&quot;
+    }
+    azurerm = {
+      source  = &quot;hashicorp/azurerm&quot;
+      version = &quot;~&gt;2.0&quot;
+    }
+    random = {
+      source  = &quot;hashicorp/random&quot;
+      version = &quot;~&gt;3.0&quot;
+    }
+  }
+}
+
+provider &quot;azurerm&quot; {
+  features {}
+}
+"><span><span class="hljs-keyword">terraform</span> {
+  required_version = <span class="hljs-string">"&gt;=0.12"</span>
+
+  required_providers {
+    azapi = {
+      source  = <span class="hljs-string">"azure/azapi"</span>
+      version = <span class="hljs-string">"~&gt;1.5"</span>
+    }
+    azurerm = {
+      source  = <span class="hljs-string">"hashicorp/azurerm"</span>
+      version = <span class="hljs-string">"~&gt;2.0"</span>
+    }
+    random = {
+      source  = <span class="hljs-string">"hashicorp/random"</span>
+      version = <span class="hljs-string">"~&gt;3.0"</span>
+    }
+  }
+}
+
+<span class="hljs-keyword">provider</span> <span class="hljs-string">"azurerm"</span> {
+  features {}
+}
+</span></code></pre>
+</li>
+<li><p>Create a file named <code>ssh.tf</code> and insert the following code:</p>
+<div class="codeHeader" id="code-try-1" data-bi-name="code-header"><span class="language">Terraform</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus" role="group" aria-label="Horizontally scrollable code" tabindex="0"><code class="lang-Terraform" data-author-content="resource &quot;random_pet&quot; &quot;ssh_key_name&quot; {
+  prefix    = &quot;ssh&quot;
+  separator = &quot;&quot;
+}
+
+resource &quot;azapi_resource_action&quot; &quot;ssh_public_key_gen&quot; {
+  type        = &quot;Microsoft.Compute/sshPublicKeys@2022-11-01&quot;
+  resource_id = azapi_resource.ssh_public_key.id
+  action      = &quot;generateKeyPair&quot;
+  method      = &quot;POST&quot;
+
+  response_export_values = [&quot;publicKey&quot;, &quot;privateKey&quot;]
+}
+
+resource &quot;azapi_resource&quot; &quot;ssh_public_key&quot; {
+  type      = &quot;Microsoft.Compute/sshPublicKeys@2022-11-01&quot;
+  name      = random_pet.ssh_key_name.id
+  location  = azurerm_resource_group.rg.location
+  parent_id = azurerm_resource_group.rg.id
+}
+
+output &quot;key_data&quot; {
+  value = jsondecode(azapi_resource_action.ssh_public_key_gen.output).publicKey
+}
+"><span><span class="hljs-keyword">resource</span> <span class="hljs-string">"random_pet"</span> <span class="hljs-string">"ssh_key_name"</span> {
+  prefix    = <span class="hljs-string">"ssh"</span>
+  separator = <span class="hljs-string">""</span>
+}
+
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azapi_resource_action"</span> <span class="hljs-string">"ssh_public_key_gen"</span> {
+  type        = <span class="hljs-string">"Microsoft.Compute/sshPublicKeys@2022-11-01"</span>
+  resource_id = azapi_resource.ssh_public_key.id
+  action      = <span class="hljs-string">"generateKeyPair"</span>
+  method      = <span class="hljs-string">"POST"</span>
+
+  response_export_values = [<span class="hljs-string">"publicKey"</span>, <span class="hljs-string">"privateKey"</span>]
+}
+
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azapi_resource"</span> <span class="hljs-string">"ssh_public_key"</span> {
+  type      = <span class="hljs-string">"Microsoft.Compute/sshPublicKeys@2022-11-01"</span>
+  name      = random_pet.ssh_key_name.id
+  location  = azurerm_resource_group.rg.location
+  parent_id = azurerm_resource_group.rg.id
+}
+
+<span class="hljs-keyword">output</span> <span class="hljs-string">"key_data"</span> {
+  value = jsondecode(azapi_resource_action.ssh_public_key_gen.<span class="hljs-keyword">output</span>).publicKey
+}
+</span></code></pre>
+</li>
+<li><p>Create a file named <code>main.tf</code> and insert the following code:</p>
+<div class="codeHeader" id="code-try-2" data-bi-name="code-header"><span class="language">Terraform</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus" role="group" aria-label="Horizontally scrollable code" tabindex="0"><code class="lang-Terraform" data-author-content="resource &quot;random_pet&quot; &quot;rg_name&quot; {
+  prefix = var.resource_group_name_prefix
+}
+
+resource &quot;azurerm_resource_group&quot; &quot;rg&quot; {
+  location = var.resource_group_location
+  name     = random_pet.rg_name.id
+}
+
+# Create virtual network
+resource &quot;azurerm_virtual_network&quot; &quot;my_terraform_network&quot; {
+  name                = &quot;myVnet&quot;
+  address_space       = [&quot;10.0.0.0/16&quot;]
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+# Create subnet
+resource &quot;azurerm_subnet&quot; &quot;my_terraform_subnet&quot; {
+  name                 = &quot;mySubnet&quot;
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.my_terraform_network.name
+  address_prefixes     = [&quot;10.0.1.0/24&quot;]
+}
+
+# Create public IPs
+resource &quot;azurerm_public_ip&quot; &quot;my_terraform_public_ip&quot; {
+  name                = &quot;myPublicIP&quot;
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = &quot;Dynamic&quot;
+}
+
+# Create Network Security Group and rule
+resource &quot;azurerm_network_security_group&quot; &quot;my_terraform_nsg&quot; {
+  name                = &quot;myNetworkSecurityGroup&quot;
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  security_rule {
+    name                       = &quot;SSH&quot;
+    priority                   = 1001
+    direction                  = &quot;Inbound&quot;
+    access                     = &quot;Allow&quot;
+    protocol                   = &quot;Tcp&quot;
+    source_port_range          = &quot;*&quot;
+    destination_port_range     = &quot;22&quot;
+    source_address_prefix      = &quot;*&quot;
+    destination_address_prefix = &quot;*&quot;
+  }
+}
+
+# Create network interface
+resource &quot;azurerm_network_interface&quot; &quot;my_terraform_nic&quot; {
+  name                = &quot;myNIC&quot;
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = &quot;my_nic_configuration&quot;
+    subnet_id                     = azurerm_subnet.my_terraform_subnet.id
+    private_ip_address_allocation = &quot;Dynamic&quot;
+    public_ip_address_id          = azurerm_public_ip.my_terraform_public_ip.id
+  }
+}
+
+# Connect the security group to the network interface
+resource &quot;azurerm_network_interface_security_group_association&quot; &quot;example&quot; {
+  network_interface_id      = azurerm_network_interface.my_terraform_nic.id
+  network_security_group_id = azurerm_network_security_group.my_terraform_nsg.id
+}
+
+# Generate random text for a unique storage account name
+resource &quot;random_id&quot; &quot;random_id&quot; {
+  keepers = {
+    # Generate a new ID only when a new resource group is defined
+    resource_group = azurerm_resource_group.rg.name
+  }
+
+  byte_length = 8
+}
+
+# Create storage account for boot diagnostics
+resource &quot;azurerm_storage_account&quot; &quot;my_storage_account&quot; {
+  name                     = &quot;diag${random_id.random_id.hex}&quot;
+  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  account_tier             = &quot;Standard&quot;
+  account_replication_type = &quot;LRS&quot;
+}
+
+# Create virtual machine
+resource &quot;azurerm_linux_virtual_machine&quot; &quot;my_terraform_vm&quot; {
+  name                  = &quot;myVM&quot;
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
+  size                  = &quot;Standard_DS1_v2&quot;
+
+  os_disk {
+    name                 = &quot;myOsDisk&quot;
+    caching              = &quot;ReadWrite&quot;
+    storage_account_type = &quot;Premium_LRS&quot;
+  }
+
+  source_image_reference {
+    publisher = &quot;Canonical&quot;
+    offer     = &quot;0001-com-ubuntu-server-jammy&quot;
+    sku       = &quot;22_04-lts-gen2&quot;
+    version   = &quot;latest&quot;
+  }
+
+  computer_name  = &quot;hostname&quot;
+  admin_username = var.username
+
+  admin_ssh_key {
+    username   = var.username
+    public_key = jsondecode(azapi_resource_action.ssh_public_key_gen.output).publicKey
+  }
+
+  boot_diagnostics {
+    storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
+  }
+}
+"><span><span class="hljs-keyword">resource</span> <span class="hljs-string">"random_pet"</span> <span class="hljs-string">"rg_name"</span> {
+  prefix = var.resource_group_name_prefix
+}
+
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_resource_group"</span> <span class="hljs-string">"rg"</span> {
+  location = var.resource_group_location
+  name     = random_pet.rg_name.id
+}
+
+<span class="hljs-comment"># Create virtual network</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_virtual_network"</span> <span class="hljs-string">"my_terraform_network"</span> {
+  name                = <span class="hljs-string">"myVnet"</span>
+  address_space       = [<span class="hljs-string">"10.0.0.0/16"</span>]
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+<span class="hljs-comment"># Create subnet</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_subnet"</span> <span class="hljs-string">"my_terraform_subnet"</span> {
+  name                 = <span class="hljs-string">"mySubnet"</span>
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.my_terraform_network.name
+  address_prefixes     = [<span class="hljs-string">"10.0.1.0/24"</span>]
+}
+
+<span class="hljs-comment"># Create public IPs</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_public_ip"</span> <span class="hljs-string">"my_terraform_public_ip"</span> {
+  name                = <span class="hljs-string">"myPublicIP"</span>
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = <span class="hljs-string">"Dynamic"</span>
+}
+
+<span class="hljs-comment"># Create Network Security Group and rule</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_network_security_group"</span> <span class="hljs-string">"my_terraform_nsg"</span> {
+  name                = <span class="hljs-string">"myNetworkSecurityGroup"</span>
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  security_rule {
+    name                       = <span class="hljs-string">"SSH"</span>
+    priority                   = <span class="hljs-number">1001</span>
+    direction                  = <span class="hljs-string">"Inbound"</span>
+    access                     = <span class="hljs-string">"Allow"</span>
+    protocol                   = <span class="hljs-string">"Tcp"</span>
+    source_port_range          = <span class="hljs-string">"*"</span>
+    destination_port_range     = <span class="hljs-string">"22"</span>
+    source_address_prefix      = <span class="hljs-string">"*"</span>
+    destination_address_prefix = <span class="hljs-string">"*"</span>
+  }
+}
+
+<span class="hljs-comment"># Create network interface</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_network_interface"</span> <span class="hljs-string">"my_terraform_nic"</span> {
+  name                = <span class="hljs-string">"myNIC"</span>
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = <span class="hljs-string">"my_nic_configuration"</span>
+    subnet_id                     = azurerm_subnet.my_terraform_subnet.id
+    private_ip_address_allocation = <span class="hljs-string">"Dynamic"</span>
+    public_ip_address_id          = azurerm_public_ip.my_terraform_public_ip.id
+  }
+}
+
+<span class="hljs-comment"># Connect the security group to the network interface</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_network_interface_security_group_association"</span> <span class="hljs-string">"example"</span> {
+  network_interface_id      = azurerm_network_interface.my_terraform_nic.id
+  network_security_group_id = azurerm_network_security_group.my_terraform_nsg.id
+}
+
+<span class="hljs-comment"># Generate random text for a unique storage account name</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"random_id"</span> <span class="hljs-string">"random_id"</span> {
+  keepers = {
+    <span class="hljs-comment"># Generate a new ID only when a new resource group is defined</span>
+    resource_group = azurerm_resource_group.rg.name
+  }
+
+  byte_length = <span class="hljs-number">8</span>
+}
+
+<span class="hljs-comment"># Create storage account for boot diagnostics</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_storage_account"</span> <span class="hljs-string">"my_storage_account"</span> {
+  name                     = <span class="hljs-string">"diag<span class="hljs-variable">${random_id.random_id.hex}</span>"</span>
+  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  account_tier             = <span class="hljs-string">"Standard"</span>
+  account_replication_type = <span class="hljs-string">"LRS"</span>
+}
+
+<span class="hljs-comment"># Create virtual machine</span>
+<span class="hljs-keyword">resource</span> <span class="hljs-string">"azurerm_linux_virtual_machine"</span> <span class="hljs-string">"my_terraform_vm"</span> {
+  name                  = <span class="hljs-string">"myVM"</span>
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
+  size                  = <span class="hljs-string">"Standard_DS1_v2"</span>
+
+  os_disk {
+    name                 = <span class="hljs-string">"myOsDisk"</span>
+    caching              = <span class="hljs-string">"ReadWrite"</span>
+    storage_account_type = <span class="hljs-string">"Premium_LRS"</span>
+  }
+
+  source_image_reference {
+    publisher = <span class="hljs-string">"Canonical"</span>
+    offer     = <span class="hljs-string">"0001-com-ubuntu-server-jammy"</span>
+    sku       = <span class="hljs-string">"22_04-lts-gen2"</span>
+    version   = <span class="hljs-string">"latest"</span>
+  }
+
+  computer_name  = <span class="hljs-string">"hostname"</span>
+  admin_username = var.username
+
+  admin_ssh_key {
+    username   = var.username
+    public_key = jsondecode(azapi_resource_action.ssh_public_key_gen.<span class="hljs-keyword">output</span>).publicKey
+  }
+
+  boot_diagnostics {
+    storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
+  }
+}
+</span></code></pre>
+</li>
+<li><p>Create a file named <code>variables.tf</code> and insert the following code:</p>
+<div class="codeHeader" id="code-try-3" data-bi-name="code-header"><span class="language">Terraform</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus" role="group" aria-label="Horizontally scrollable code" tabindex="0"><code class="lang-Terraform" data-author-content="variable &quot;resource_group_location&quot; {
+  type        = string
+  default     = &quot;eastus&quot;
+  description = &quot;Location of the resource group.&quot;
+}
+
+variable &quot;resource_group_name_prefix&quot; {
+  type        = string
+  default     = &quot;rg&quot;
+  description = &quot;Prefix of the resource group name that&#39;s combined with a random ID so name is unique in your Azure subscription.&quot;
+}
+
+variable &quot;username&quot; {
+  type        = string
+  description = &quot;The username for the local account that will be created on the new VM.&quot;
+  default     = &quot;azureadmin&quot;
+}
+"><span><span class="hljs-keyword">variable</span> <span class="hljs-string">"resource_group_location"</span> {
+  type        = string
+  default     = <span class="hljs-string">"eastus"</span>
+  description = <span class="hljs-string">"Location of the resource group."</span>
+}
+
+<span class="hljs-keyword">variable</span> <span class="hljs-string">"resource_group_name_prefix"</span> {
+  type        = string
+  default     = <span class="hljs-string">"rg"</span>
+  description = <span class="hljs-string">"Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."</span>
+}
+
+<span class="hljs-keyword">variable</span> <span class="hljs-string">"username"</span> {
+  type        = string
+  description = <span class="hljs-string">"The username for the local account that will be created on the new VM."</span>
+  default     = <span class="hljs-string">"azureadmin"</span>
+}
+</span></code></pre>
+</li>
+<li><p>Create a file named <code>outputs.tf</code> and insert the following code:</p>
+<div class="codeHeader" id="code-try-4" data-bi-name="code-header"><span class="language">Terraform</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus" role="group" aria-label="Horizontally scrollable code" tabindex="0"><code class="lang-Terraform" data-author-content="output &quot;resource_group_name&quot; {
+  value = azurerm_resource_group.rg.name
+}
+
+output &quot;public_ip_address&quot; {
+  value = azurerm_linux_virtual_machine.my_terraform_vm.public_ip_address
+}
+"><span><span class="hljs-keyword">output</span> <span class="hljs-string">"resource_group_name"</span> {
+  value = azurerm_resource_group.rg.name
+}
+
+<span class="hljs-keyword">output</span> <span class="hljs-string">"public_ip_address"</span> {
+  value = azurerm_linux_virtual_machine.my_terraform_vm.public_ip_address
+}
+</span></code></pre>
+</li>
+</ol>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#initialize-terraform" aria-label="Section titled: Initialize Terraform"></a><h2 id="initialize-terraform" class="heading-anchor">Initialize Terraform</h2></div>
+<p>Run <a href="https://www.terraform.io/docs/commands/init.html" data-linktype="external">terraform init</a> to initialize the Terraform deployment. This command downloads the Azure provider required to manage your Azure resources.</p>
+<div class="codeHeader" id="code-try-5" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="terraform init -upgrade
+"><span>terraform init -upgrade
+</span></code></pre>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>The <code>-upgrade</code> parameter upgrades the necessary provider plugins to the newest version that complies with the configuration's version constraints.</li>
+</ul>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#create-a-terraform-execution-plan" aria-label="Section titled: Create a Terraform execution plan"></a><h2 id="create-a-terraform-execution-plan" class="heading-anchor">Create a Terraform execution plan</h2></div>
+<p>Run <a href="https://www.terraform.io/docs/commands/plan.html" data-linktype="external">terraform plan</a> to create an execution plan.</p>
+<div class="codeHeader" id="code-try-6" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="terraform plan -out main.tfplan
+"><span>terraform plan -out main.tfplan
+</span></code></pre>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>The <code>terraform plan</code> command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.</li>
+<li>The optional <code>-out</code> parameter allows you to specify an output file for the plan. Using the <code>-out</code> parameter ensures that the plan you reviewed is exactly what is applied.</li>
+<li>To read more about persisting execution plans and security, see the <a href="https://www.terraform.io/docs/commands/plan.html#security-warning" data-linktype="external">security warning section</a>.</li>
+</ul>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#apply-a-terraform-execution-plan" aria-label="Section titled: Apply a Terraform execution plan"></a><h2 id="apply-a-terraform-execution-plan" class="heading-anchor">Apply a Terraform execution plan</h2></div>
+<p>Run <a href="https://www.terraform.io/docs/commands/apply.html" data-linktype="external">terraform apply</a> to apply the execution plan to your cloud infrastructure.</p>
+<div class="codeHeader" id="code-try-7" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="terraform apply main.tfplan
+"><span>terraform apply main.tfplan
+</span></code></pre>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>The example <code>terraform apply</code> command assumes you previously ran <code>terraform plan -out main.tfplan</code>.</li>
+<li>If you specified a different filename for the <code>-out</code> parameter, use that same filename in the call to <code>terraform apply</code>.</li>
+<li>If you didn't use the <code>-out</code> parameter, call <code>terraform apply</code> without any parameters.</li>
+</ul>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#verify-the-results" aria-label="Section titled: Verify the results"></a><h2 id="verify-the-results" class="heading-anchor">Verify the results</h2></div>
+<div class="tabGroup" id="tabgroup_1" data-bi-name="tab-group">
+<ul role="tablist">
+<li role="presentation">
+<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#tabpanel_1_azure-cli" role="tab" aria-controls="tabpanel_1_azure-cli" data-tab="azure-cli" tabindex="0" aria-selected="true" data-linktype="self-bookmark" data-bi-name="tab">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#tabpanel_1_azure-powershell" role="tab" aria-controls="tabpanel_1_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark" data-bi-name="tab" aria-selected="false">Azure PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_1_azure-cli" role="tabpanel" data-tab="azure-cli">
+
+<ol>
+<li><p>Get the Azure resource group name.</p>
+<div class="codeHeader" id="code-try-8" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="resource_group_name=$(terraform output -raw resource_group_name)
+"><span>resource_group_name=$(terraform output -raw resource_group_name)
+</span></code></pre>
+</li>
+<li><p>Run <a href="https://learn.microsoft.com/en-us/cli/azure/vm#az-vm-list" data-linktype="absolute-path">az vm list</a> with a <a href="https://learn.microsoft.com/en-us/cli/azure/query-azure-cli" data-linktype="absolute-path">JMESPath</a> query to display the names of the virtual machines created in the resource group.</p>
+<div class="codeHeader" id="code-try-9" data-bi-name="code-header"><span class="language">Azure CLI</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-azurecli" data-author-content="az vm list \
+  --resource-group $resource_group_name \
+  --query &quot;[].{\&quot;VM Name\&quot;:name}&quot; -o table
+"><span><span class="hljs-keyword">az vm list </span>\
+  <span class="hljs-parameter">--resource-group</span> <span class="hljs-variable">$resource_group_name</span> \
+  <span class="hljs-parameter">--query</span> <span class="hljs-string">"[].{\"VM Name\":name}"</span> <span class="hljs-parameter">-o</span> table
+</span></code></pre>
+</li>
+</ol>
+</section>
+<section id="tabpanel_1_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<ol>
+<li><p>Get the Azure resource group name.</p>
+<div class="codeHeader" id="code-try-10" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="$resource_group_name=$(terraform output -raw resource_group_name)
+"><span><span class="hljs-meta">$</span><span class="bash">resource_group_name=$(terraform output -raw resource_group_name)</span>
+</span></code></pre>
+</li>
+<li><p>Run <a href="https://learn.microsoft.com/en-us/powershell/module/az.compute/get-azvm" data-linktype="absolute-path">Get-AzVm</a>  to display the names of all the virtual machines in the resource group.</p>
+<div class="codeHeader" id="code-try-11" data-bi-name="code-header"><span class="language">Azure PowerShell</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-azurepowershell" data-author-content="Get-AzVm -ResourceGroupName $resource_group_name
+"><span><span class="hljs-pscommand">Get-AzVm</span><span class="hljs-parameter"> -ResourceGroupName</span> <span class="hljs-variable">$resource_group_name</span>
+</span></code></pre>
+</li>
+</ol>
+</section>
+</div>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#clean-up-resources" aria-label="Section titled: Clean up resources"></a><h2 id="clean-up-resources" class="heading-anchor">Clean up resources</h2></div>
+<p>When you no longer need the resources created via Terraform, do the following steps:</p>
+<ol>
+<li><p>Run <a href="https://www.terraform.io/docs/commands/plan.html" data-linktype="external">terraform plan</a> and specify the <code>destroy</code> flag.</p>
+<div class="codeHeader" id="code-try-12" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="terraform plan -destroy -out main.destroy.tfplan
+"><span>terraform plan -destroy -out main.destroy.tfplan
+</span></code></pre>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>The <code>terraform plan</code> command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files. This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources.</li>
+<li>The optional <code>-out</code> parameter allows you to specify an output file for the plan. Using the <code>-out</code> parameter ensures that the plan you reviewed is exactly what is applied.</li>
+<li>To read more about persisting execution plans and security, see the <a href="https://www.terraform.io/docs/commands/plan.html#security-warning" data-linktype="external">security warning section</a>.</li>
+</ul>
+</li>
+<li><p>Run <a href="https://www.terraform.io/docs/commands/apply.html" data-linktype="external">terraform apply</a> to apply the execution plan.</p>
+<div class="codeHeader" id="code-try-13" data-bi-name="code-header"><span class="language">Console</span>
+		<button type="button" class="action position-relative display-none-print" data-bi-name="copy">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-edit-copy"></span>
+			</span>
+			<span>Copy</span>
+			<div class="successful-copy-alert position-absolute right-0 top-0 left-0 bottom-0 display-flex align-items-center justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+				<span class="icon font-size-lg">
+					<span class="docon docon-check-mark"></span>
+				</span>
+			</div>
+		</button>
+	</div><pre class="has-inner-focus"><code class="lang-console" data-author-content="terraform apply main.destroy.tfplan
+"><span>terraform apply main.destroy.tfplan
+</span></code></pre>
+</li>
+</ol>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#troubleshoot-terraform-on-azure" aria-label="Section titled: Troubleshoot Terraform on Azure"></a><h2 id="troubleshoot-terraform-on-azure" class="heading-anchor">Troubleshoot Terraform on Azure</h2></div>
+<p><a href="https://learn.microsoft.com/en-us/azure/developer/terraform/troubleshoot" data-linktype="absolute-path">Troubleshoot common problems when using Terraform on Azure</a></p>
+<div class="heading-wrapper" data-heading-level="h2"><a class="anchor-link docon docon-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform?tabs=azure-cli#next-steps" aria-label="Section titled: Next steps"></a><h2 id="next-steps" class="heading-anchor">Next steps</h2></div>
+<p>In this quickstart, you deployed a simple virtual machine using Terraform. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.</p>
+<div class="nextstepaction">
+<p><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm" data-linktype="relative-path" class="button button-primary button-filled has-text-wrap">Azure Linux virtual machine tutorials</a></p>
+</div>
+
+							</div>
+
+							<div id="assertive-live-region" role="alert" aria-live="assertive" class="visually-hidden" aria-relevant="additions" aria-atomic="true"></div>
+							<div id="polite-live-region" role="status" aria-live="polite" class="visually-hidden" aria-relevant="additions" aria-atomic="true"></div>
+							<!-- </content> -->
+
+						</main>
+
+
+
+
+
+						<!-- recommendations section -->
+						<!-- end recommendations section -->
+
+						<!-- feedback section -->
+<section class="feedback-section position-relative" data-bi-name="feedback-section">
+    <h2 id="feedback" class="title is-3 margin-top-sm">Feedback</h2>
+
+    <div class="alert choose-feedback-type padding-bottom-sm">
+        <p id="send-feedback-about">Submit and view feedback for</p>
+
+        <div class="choose-feedback-buttons buttons margin-top-xs">
+                <a class="button has-external-link-indicator feedback-type-product" aria-label="Send feedback about this product" href="https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c" data-bi-name="product-feedback">
+                    <span>This product</span>
+                </a>
+			<a class="button feedback-type-product github-link" aria-label="Send feedback about this page" data-bi-name="create-issue-on-github" href="https://github.com/MicrosoftDocs/azure-docs/issues/new?title=&amp;body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20Details%0A%0A%E2%9A%A0%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20%E2%9E%9F%20GitHub%20issue%20linking.*%0A%0A*%20ID%3A%200be5efec-a7e5-9346-b859-4791da050820%0A*%20Version%20Independent%20ID%3A%207d046801-a77f-602c-3daf-c32ee37454fd%0A*%20Content%3A%20%5BQuickstart%3A%20Use%20Terraform%20to%20create%20a%20Linux%20VM%20-%20Azure%20Virtual%20Machines%5D(https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform%3Ftabs%3Dazure-cli)%0A*%20Content%20Source%3A%20%5Barticles%2Fvirtual-machines%2Flinux%2Fquick-create-terraform.md%5D(https%3A%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fvirtual-machines%2Flinux%2Fquick-create-terraform.md)%0A*%20Service%3A%20**virtual-machines**%0A*%20GitHub%20Login%3A%20%40TomArcherMsft%0A*%20Microsoft%20Alias%3A%20**tarcher**">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-brand-github"></span>
+				</span>
+				<span>This page</span>
+			</a>
+        </div>
+    </div>
+
+    <div class="action-container display-flex justify-content-flex-end margin-block-xxs">
+        <a class="view-on-github has-external-link-indicator" data-bi-name="view-on-github" href="https://github.com/MicrosoftDocs/azure-docs/issues?utf8=%E2%9C%93&amp;q=%227d046801-a77f-602c-3daf-c32ee37454fd%22&amp;in=body">
+            <span aria-hidden="true" class="docon docon-brand-github"></span>
+            <span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+							<div id="ms--additional-resources-mobile" role="complementary" aria-label="Additional resources" class="display-none-desktop display-none-print">
+								<hr class="hr">
+								<h2 id="ms--additional-resources-mobile-heading" class="title is-3">Additional resources</h2>
+								<section id="right-rail-recommendations-mobile" data-bi-name="recommendations"><!---->
+		<hr class="hr display-none display-block-desktop">
+		<article class="margin-top-md margin-top-sm-desktop">
+			
+		<p class="font-weight-semibold font-size-md display-flex align-items-center">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-book-art64"></span>
+			</span>
+			Documentation
+		</p>
+	
+			<div class="margin-top-xs ">
+				
+		<ul aria-live="polite" aria-relevant="additions" id="right-rail-recommendations-list-0">
+			<!---->
+					<li class="padding-none margin-top-xs margin-bottom-none position-relative ">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-cluster-create-terraform?source=recommendations" data-bi-name="right-rail-recommendation-item-0">
+				Quickstart: Create a Linux VM cluster in Azure using Terraform - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			In this article, you learn how to create a Linux VM cluster in Azure using Terraform
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative ">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-terraform?source=recommendations" data-bi-name="right-rail-recommendation-item-1">
+				Quickstart: Use Terraform to create a Windows VM - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			In this quickstart, you learn how to use Terraform to create a Windows virtual machine
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative ">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-cluster-create-terraform?source=recommendations" data-bi-name="right-rail-recommendation-item-2">
+				Quickstart: Create a Windows VM cluster in Azure using Terraform - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			In this article, you learn how to create a Windows VM cluster in Azure using Terraform
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/developer/ansible/vm-configure?source=recommendations" data-bi-name="right-rail-recommendation-item-3">
+				Create a Linux virtual machines in Azure using Ansible
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to create a Linux virtual machine in Azure using Ansible
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/developer/terraform/create-vm-scaleset-network-disks-hcl?source=recommendations" data-bi-name="right-rail-recommendation-item-4">
+				Create an Azure virtual machine scale set using Terraform
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to use Terraform to configure and version an Azure virtual machine scale set.
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/ssh-keys-azure-cli?source=recommendations" data-bi-name="right-rail-recommendation-item-5">
+				Create SSH keys with the Azure CLI - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to generate and store SSH keys, before creating a VM, with the Azure CLI for connecting to Linux VMs.
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys?source=recommendations" data-bi-name="right-rail-recommendation-item-6">
+				Create and use an SSH key pair for Linux VMs in Azure - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			How to create and use an SSH public-private key pair for Linux VMs in Azure to improve the security of the authentication process.
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/developer/ansible/vm-manage?source=recommendations" data-bi-name="right-rail-recommendation-item-7">
+				Manage Linux virtual machines in Azure using Ansible
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to manage a Linux virtual machine in Azure using Ansible
+		</p>
+	
+					</li>
+				<!---->
+		</ul>
+	
+			</div>
+			<!---->
+				
+		<button type="button" aria-expanded="false" data-show-more="" class="link-button font-weight-semibold font-size-sm margin-top-sm" aria-controls="right-rail-recommendations-list-0" data-title="Show 5 more" data-bi-name="show-more-btn">
+			<span class="show-more-text "><!---->Show 5 more<!----></span>
+			
+		</button>
+	
+		  <!---->
+		</article>
+	<!----></section>
+								<section id="right-rail-training-mobile" data-bi-name="learning-resources-card"><!---->
+		<hr class="hr display-none display-block-desktop">
+		<article class="margin-top-md margin-top-sm-desktop">
+			
+		<p class="font-weight-semibold font-size-md display-flex align-items-center">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-cube-cone-ball-shapes"></span>
+			</span>
+			Training
+		</p>
+	
+			<div class="margin-top-xs position-relative">
+				<!---->
+		<div class="position-relative margin-top-xs">
+			
+		
+				<p class="has-line-height-reset color-text-subtle font-size-xs font-weight-semibold">
+					Module
+				</p>
+		  
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/training/modules/provision-linux-virtual-machine-in-azure/?source=recommendations">
+				Provisioning a Linux virtual machine in Microsoft Azure - Training
+			</a>
+		</p>
+	
+			
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn about different methods of provisioning Linux virtual machines in Microsoft Azure.
+		</p>
+	
+		</div>
+	<!----><!---->
+			</div>
+			
+		</article>
+	<!----></section>
+								<section id="right-rail-events-mobile" data-bi-name="events-card" hidden=""></section>
+								<section id="right-rail-qna-mobile" data-bi-name="qna-link-card" hidden=""></section>
+							</div>
+
+						<div class="border-top is-visible-interactive has-default-focus margin-top-sm ">
+
+
+
+	<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+	<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link button button-sm button-clear flex-shrink-0" href="https://learn.microsoft.com/en-us/locale?target=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform" data-bi-name="select-locale" aria-label="Content language selector. Currently set to English (United States).">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-world"></span>
+					</span>
+					<span class="local-selector-link-text">English (United States)</span></a>
+		<div class="flex-shrink-0">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+		<span class="icon expanded-indicator" aria-hidden="true">
+			<span class="docon docon-chevron-down-light"></span>
+		</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector padding-xxs" role="none">
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light margin-right-xxs">
+						<span class="theme-selector-icon css-variable-support border display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>
+Light					</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark margin-right-xxs">
+						<span class="border theme-selector-icon css-variable-support display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast margin-right-xxs">
+						<span class="border theme-selector-icon css-variable-support display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+		</div>
+	</div>
+	<ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder"><button data-bi-name="manageCookies">Manage cookies</button></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://learn.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Versions</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog" data-bi-name="bloglink">Blog</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://learn.microsoft.com/en-us/contribute/" data-bi-name="contributorGuide">Contribute</a></li>
+					<li><a class="external-link-indicator" data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://learn.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/" data-bi-name="trademarks">Trademarks</a></li>
+		<li>© Microsoft 2023</li>
+	</ul>
+</footer>
+						</div>
+
+					</div>
+
+						<div id="ms--additional-resources" class="right-container column is-4-desktop display-none display-block-desktop" data-bi-name="pageactions" role="complementary" aria-label="Additional resources">
+							<div id="affixed-right-container" class="margin-top-sm-tablet position-sticky" data-bi-name="right-column" style="top: 36px; bottom: 36px;">
+								<h2 id="ms--additional-resources-heading" class="title is-6 margin-top-md">Additional resources</h2>
+								<section id="right-rail-events" data-bi-name="events-card" hidden=""></section>
+								<section id="right-rail-training" data-bi-name="learning-resources-card"><!---->
+		<hr class="hr display-none display-block-desktop">
+		<article class="margin-top-md margin-top-sm-desktop">
+			
+		<p class="font-weight-semibold font-size-md display-flex align-items-center">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-cube-cone-ball-shapes"></span>
+			</span>
+			Training
+		</p>
+	
+			<div class="margin-top-xs position-relative">
+				<!---->
+		<div class="position-relative margin-top-xs">
+			
+		
+				<p class="has-line-height-reset color-text-subtle font-size-xs font-weight-semibold">
+					Module
+				</p>
+		  
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/training/modules/provision-linux-virtual-machine-in-azure/?source=recommendations">
+				Provisioning a Linux virtual machine in Microsoft Azure - Training
+			</a>
+		</p>
+	
+			
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn about different methods of provisioning Linux virtual machines in Microsoft Azure.
+		</p>
+	
+		</div>
+	<!----><!---->
+			</div>
+			
+		</article>
+	<!----></section>
+								<section id="right-rail-recommendations" data-bi-name="recommendations"><!---->
+		<hr class="hr display-none display-block-desktop">
+		<article class="margin-top-md margin-top-sm-desktop">
+			
+		<p class="font-weight-semibold font-size-md display-flex align-items-center">
+			<span class="icon margin-right-xxs" aria-hidden="true">
+				<span class="docon docon-book-art64"></span>
+			</span>
+			Documentation
+		</p>
+	
+			<div class="margin-top-xs ">
+				
+		<ul aria-live="polite" aria-relevant="additions" id="right-rail-recommendations-list-1">
+			<!---->
+					<li class="padding-none margin-top-xs margin-bottom-none position-relative ">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-cluster-create-terraform?source=recommendations" data-bi-name="right-rail-recommendation-item-0">
+				Quickstart: Create a Linux VM cluster in Azure using Terraform - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			In this article, you learn how to create a Linux VM cluster in Azure using Terraform
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative ">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-terraform?source=recommendations" data-bi-name="right-rail-recommendation-item-1">
+				Quickstart: Use Terraform to create a Windows VM - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			In this quickstart, you learn how to use Terraform to create a Windows virtual machine
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative ">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-cluster-create-terraform?source=recommendations" data-bi-name="right-rail-recommendation-item-2">
+				Quickstart: Create a Windows VM cluster in Azure using Terraform - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			In this article, you learn how to create a Windows VM cluster in Azure using Terraform
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/developer/ansible/vm-configure?source=recommendations" data-bi-name="right-rail-recommendation-item-3">
+				Create a Linux virtual machines in Azure using Ansible
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to create a Linux virtual machine in Azure using Ansible
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/developer/terraform/create-vm-scaleset-network-disks-hcl?source=recommendations" data-bi-name="right-rail-recommendation-item-4">
+				Create an Azure virtual machine scale set using Terraform
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to use Terraform to configure and version an Azure virtual machine scale set.
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/ssh-keys-azure-cli?source=recommendations" data-bi-name="right-rail-recommendation-item-5">
+				Create SSH keys with the Azure CLI - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to generate and store SSH keys, before creating a VM, with the Azure CLI for connecting to Linux VMs.
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys?source=recommendations" data-bi-name="right-rail-recommendation-item-6">
+				Create and use an SSH key pair for Linux VMs in Azure - Azure Virtual Machines
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			How to create and use an SSH public-private key pair for Linux VMs in Azure to improve the security of the authentication process.
+		</p>
+	
+					</li>
+				<!---->
+					<li class="padding-none margin-top-sm margin-bottom-none position-relative expandable">
+						
+		
+		<p class="line-clamp-3">
+			<a class="display-block inner-focus font-weight-semibold font-size-sm has-line-height-reset stretched-link" href="https://learn.microsoft.com/en-us/azure/developer/ansible/vm-manage?source=recommendations" data-bi-name="right-rail-recommendation-item-7">
+				Manage Linux virtual machines in Azure using Ansible
+			</a>
+		</p>
+	
+						
+		<p class="font-size-sm has-line-height-reset color-text-subtle margin-top-xxs line-clamp-3">
+			Learn how to manage a Linux virtual machine in Azure using Ansible
+		</p>
+	
+					</li>
+				<!---->
+		</ul>
+	
+			</div>
+			<!---->
+				
+		<button type="button" aria-expanded="false" data-show-more="" class="link-button font-weight-semibold font-size-sm margin-top-sm" aria-controls="right-rail-recommendations-list-1" data-title="Show 5 more" data-bi-name="show-more-btn">
+			<span class="show-more-text "><!---->Show 5 more<!----></span>
+			
+		</button>
+	
+		  <!---->
+		</article>
+	<!----></section>
+								<nav id="side-doc-outline" class="doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="In this article">
+									<h3>In this article</h3>
+								</nav>
+								<section id="right-rail-qna" class="margin-top-xxs" data-bi-name="qna-link-card" hidden=""></section>
+							</div>
+						</div>
+
+				</div>
+				<!--end of div.columns -->
+
+			</section>
+			<!--end of .primary-holder -->
+
+			<!-- interactive container -->
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+			<!-- end of interactive container -->
+		</div>
+
+	</div>
+	<!--end of .mainContainer -->
+
+	<section class="border-top has-default-focus is-hidden-interactive margin-top-sm ">
+
+
+
+	<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+	<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link button button-sm button-clear flex-shrink-0" href="https://learn.microsoft.com/en-us/locale?target=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Flinux%2Fquick-create-terraform" data-bi-name="select-locale" aria-label="Content language selector. Currently set to English (United States).">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-world"></span>
+					</span>
+					<span class="local-selector-link-text">English (United States)</span></a>
+		<div class="flex-shrink-0">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+		<span class="icon expanded-indicator" aria-hidden="true">
+			<span class="docon docon-chevron-down-light"></span>
+		</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector padding-xxs" role="none">
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light margin-right-xxs">
+						<span class="theme-selector-icon css-variable-support border display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>
+Light					</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark margin-right-xxs">
+						<span class="border theme-selector-icon css-variable-support display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme display-block" role="menuitem">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast margin-right-xxs">
+						<span class="border theme-selector-icon css-variable-support display-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span>
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+		</div>
+	</div>
+	<ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder"><button data-bi-name="manageCookies">Manage cookies</button></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://learn.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Versions</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog" data-bi-name="bloglink">Blog</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://learn.microsoft.com/en-us/contribute/" data-bi-name="contributorGuide">Contribute</a></li>
+					<li><a class="external-link-indicator" data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://learn.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a class="external-link-indicator" data-mscc-ic="false" href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/" data-bi-name="trademarks">Trademarks</a></li>
+		<li>© Microsoft 2023</li>
+	</ul>
+</footer>
+	</section>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+
+
+<script src="./Quickstart_ Use Terraform to create a Linux VM - Azure Virtual Machines _ Microsoft Learn_files/at.js.download" async="" defer="" integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu" crossorigin="anonymous"></script></body></html>

@@ -1,0 +1,21 @@
+- name: apply group policy
+  ansible.windows.win_command:
+    cmd: gpupdate /force
+
+- name: run cert tool
+  ansible.windows.win_command:
+    cmd: certutil -pulse
+
+- name: copy sccm files
+  ansible.windows.win_shell: |
+	Copy-Item "\\gwsycapu1\ccmsetup\" "c:\sdi" -force -recurse
+
+- name: install SCCM client
+  ansible.windows.win_command:
+    cmd: c:\sdi\ccmsetup\CCMSetupCMP-PROD-ForceInstall.bat"
+
+- name: configure SCCM triggers
+  ansible.windows.win_shell:  |
+	Invoke-WMIMethod -Namespace root\\ccm -Class SMS_CLIENT -Name TriggerSchedule "{00000000-0000-0000-0000-000000000002}"
+
+#several more triggers needed
