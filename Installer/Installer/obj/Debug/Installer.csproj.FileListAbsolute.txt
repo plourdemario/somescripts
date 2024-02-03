@@ -1,0 +1,24 @@
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\bin\Debug\Installer.exe.config
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\bin\Debug\Installer.exe
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\bin\Debug\Installer.pdb
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.Components.resources
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.End.resources
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.License.resources
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.Intro.resources
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.exe
+c:\users\user\documents\visual studio 2015\Projects\Installer\Installer\obj\Debug\Installer.pdb
+C:\projects\Installer\Installer\bin\Debug\Installer.exe.config
+C:\projects\Installer\Installer\obj\Debug\Installer.exe
+C:\projects\Installer\Installer\obj\Debug\Installer.pdb
+C:\projects\Installer\Installer\bin\Debug\Installer.exe
+C:\projects\Installer\Installer\bin\Debug\Installer.pdb
+C:\projects\Installer\Installer\obj\Debug\Installer.csprojResolveAssemblyReference.cache
+C:\projects\Installer\Installer\obj\Debug\Installer.Components.resources
+C:\projects\Installer\Installer\obj\Debug\Installer.End.resources
+C:\projects\Installer\Installer\obj\Debug\Installer.License.resources
+C:\projects\Installer\Installer\obj\Debug\Installer.Intro.resources
+C:\projects\Installer\Installer\obj\Debug\Installer.Properties.Resources.resources
+C:\projects\Installer\Installer\obj\Debug\Installer.csproj.GenerateResource.Cache

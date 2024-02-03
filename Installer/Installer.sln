@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 14 for Windows Desktop
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{057902D4-5534-4B89-989E-98BF823FB427}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Release|x86.ActiveCfg = Release|Any CPU
+		{D4BFB4FB-E570-4A7D-A5AC-465F3888055E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

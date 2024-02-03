@@ -1,0 +1,12 @@
+C:\projects\Installer\Installer\bin\Release\Installer.exe.config
+C:\projects\Installer\Installer\bin\Release\Installer.exe
+C:\projects\Installer\Installer\bin\Release\Installer.pdb
+C:\projects\Installer\Installer\obj\Release\Installer.csprojResolveAssemblyReference.cache
+C:\projects\Installer\Installer\obj\Release\Installer.Components.resources
+C:\projects\Installer\Installer\obj\Release\Installer.End.resources
+C:\projects\Installer\Installer\obj\Release\Installer.License.resources
+C:\projects\Installer\Installer\obj\Release\Installer.Intro.resources
+C:\projects\Installer\Installer\obj\Release\Installer.Properties.Resources.resources
+C:\projects\Installer\Installer\obj\Release\Installer.csproj.GenerateResource.Cache
+C:\projects\Installer\Installer\obj\Release\Installer.exe
+C:\projects\Installer\Installer\obj\Release\Installer.pdb
